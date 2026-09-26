@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="500" viewBox="0 0 800 500" role="img" aria-label="Photos coming soon">
+  <title>Photos coming soon</title>
+  <rect width="800" height="500" fill="#d5d5d5"/>
+  <g fill="none" stroke="#5c5c5c" stroke-width="8" stroke-linejoin="round" stroke-linecap="round">
+    <path d="M168 258 L400 112 L632 258"/>
+    <path d="M230 252 V392 H570 V252"/>
+    <path d="M362 392 V312 H438 V392"/>
+  </g>
+  <text x="400" y="452" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="32" fill="#3f3f3f">Photos coming soon</text>
+</svg>

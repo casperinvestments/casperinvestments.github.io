@@ -1,0 +1,9 @@
+{
+  "siteName": "Casper Rentals",
+  "company": "Casper Investments LLC",
+  "city": "Brownsville",
+  "state": "TX",
+  "baseUrl": "https://casperinvestments.github.io",
+  "formspreeEndpoint": "https://formspree.io/f/xzezjoyd",
+  "contactEmailNote": "Form submissions will be forwarded to the owner by Formspree once set up"
+}

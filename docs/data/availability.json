@@ -1,0 +1,70 @@
+{
+  "asOf": "2026-09-26",
+  "source": "Casper Master Unit Calendar (derived)",
+  "units": {
+    "GW-1": {
+      "status": "Available from 2026-10-10",
+      "nextOpenDate": "2026-10-10"
+    },
+    "GW-2": {
+      "status": "Available from 2026-11-23",
+      "nextOpenDate": "2026-11-23"
+    },
+    "GW-SA": {
+      "status": "Occupied",
+      "nextOpenDate": null
+    },
+    "GW-SB": {
+      "status": "Contact us",
+      "nextOpenDate": null
+    },
+    "GW-SC": {
+      "status": "Occupied",
+      "nextOpenDate": null
+    },
+    "CH-4023-3": {
+      "status": "Occupied",
+      "nextOpenDate": null
+    },
+    "CH-4023-4": {
+      "status": "Available from 2026-10-02",
+      "nextOpenDate": "2026-10-02"
+    },
+    "CH-428-3": {
+      "status": "Available from 2026-11-01",
+      "nextOpenDate": "2026-11-01"
+    },
+    "AU-A": {
+      "status": "Available from 2026-10-01",
+      "nextOpenDate": "2026-10-01"
+    },
+    "AU-B": {
+      "status": "Available from 2027-01-31",
+      "nextOpenDate": "2027-01-31"
+    },
+    "AU-C": {
+      "status": "Occupied",
+      "nextOpenDate": null
+    },
+    "AU-D": {
+      "status": "Available from 2027-02-01",
+      "nextOpenDate": "2027-02-01"
+    },
+    "AU-E": {
+      "status": "Contact us",
+      "nextOpenDate": null
+    },
+    "AU-1": {
+      "status": "Available from 2026-12-12",
+      "nextOpenDate": "2026-12-12"
+    },
+    "AU-4": {
+      "status": "Contact us",
+      "nextOpenDate": null
+    },
+    "AU-6": {
+      "status": "Available from 2026-10-05",
+      "nextOpenDate": "2026-10-05"
+    }
+  }
+}
