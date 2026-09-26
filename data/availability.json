@@ -3,8 +3,8 @@
   "source": "Casper Master Unit Calendar (derived)",
   "units": {
     "GW-1": {
-      "status": "Available from 2026-10-10",
-      "nextOpenDate": "2026-10-10"
+      "status": "Contact us",
+      "nextOpenDate": null
     },
     "GW-2": {
       "status": "Available from 2026-11-23",
@@ -23,12 +23,12 @@
       "nextOpenDate": null
     },
     "CH-4023-3": {
-      "status": "Occupied",
+      "status": "Contact us",
       "nextOpenDate": null
     },
     "CH-4023-4": {
-      "status": "Available from 2026-10-02",
-      "nextOpenDate": "2026-10-02"
+      "status": "Contact us",
+      "nextOpenDate": null
     },
     "CH-428-3": {
       "status": "Available from 2026-11-01",
@@ -47,8 +47,8 @@
       "nextOpenDate": null
     },
     "AU-D": {
-      "status": "Available from 2027-02-01",
-      "nextOpenDate": "2027-02-01"
+      "status": "Contact us",
+      "nextOpenDate": null
     },
     "AU-E": {
       "status": "Contact us",

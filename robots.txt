@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+Disallow: /Archive/
+
+Sitemap: https://casperinvestments.github.io/sitemap.xml

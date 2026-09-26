@@ -163,6 +163,38 @@
     applyFilters();
   }
 
+  function initGallery() {
+    var mainPhoto = document.getElementById("unit-main-photo");
+    var thumbs = document.querySelector(".photo-thumbs");
+    if (!mainPhoto || !thumbs) {
+      return;
+    }
+    thumbs.addEventListener("click", function (event) {
+      if (event.metaKey || event.ctrlKey || event.shiftKey || event.altKey || event.button !== 0) {
+        return;
+      }
+      var target = event.target;
+      var link = target.closest ? target.closest("a") : null;
+      if (!link || !thumbs.contains(link)) {
+        return;
+      }
+      var thumb = link.querySelector("img");
+      if (!thumb) {
+        return;
+      }
+      event.preventDefault();
+      mainPhoto.src = link.href;
+      var alt = thumb.getAttribute("alt");
+      if (alt) {
+        mainPhoto.alt = alt;
+      }
+      Array.prototype.forEach.call(thumbs.querySelectorAll("a[aria-current='true']"), function (item) {
+        item.removeAttribute("aria-current");
+      });
+      link.setAttribute("aria-current", "true");
+    });
+  }
+
   function initContactForm() {
     var form = document.getElementById("contact-form");
     if (!form) {
@@ -261,5 +293,6 @@
 
   initFilters();
   initContactForm();
+  initGallery();
   refreshAvailability();
 })();
