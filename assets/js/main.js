@@ -183,10 +183,36 @@
         return;
       }
       event.preventDefault();
+      var jpgSrcset = link.getAttribute("data-jpg-srcset");
+      var webpSrcset = link.getAttribute("data-webp-srcset");
+      var picture = mainPhoto.parentNode;
+      if (picture && picture.tagName === "PICTURE") {
+        var source = picture.querySelector("source");
+        if (source) {
+          if (webpSrcset) {
+            source.setAttribute("srcset", webpSrcset);
+          } else {
+            source.removeAttribute("srcset");
+          }
+        }
+      }
+      if (jpgSrcset) {
+        mainPhoto.setAttribute("srcset", jpgSrcset);
+      } else {
+        mainPhoto.removeAttribute("srcset");
+      }
       mainPhoto.src = link.href;
       var alt = thumb.getAttribute("alt");
       if (alt) {
         mainPhoto.alt = alt;
+      }
+      var width = link.getAttribute("data-width");
+      var height = link.getAttribute("data-height");
+      if (width) {
+        mainPhoto.setAttribute("width", width);
+      }
+      if (height) {
+        mainPhoto.setAttribute("height", height);
       }
       Array.prototype.forEach.call(thumbs.querySelectorAll("a[aria-current='true']"), function (item) {
         item.removeAttribute("aria-current");

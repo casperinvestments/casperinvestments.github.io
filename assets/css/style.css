@@ -29,6 +29,7 @@
 
 html {
   scroll-behavior: smooth;
+  overflow-x: clip;
 }
 
 body {
@@ -41,9 +42,19 @@ body {
   color-scheme: light;
 }
 
-img {
+img,
+svg,
+video,
+picture {
   max-width: 100%;
+}
+
+img {
   height: auto;
+}
+
+picture {
+  display: block;
 }
 
 p,
@@ -183,11 +194,20 @@ a:hover {
   background: var(--teal-dark);
 }
 
+.hero > picture {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  max-width: none;
+}
+
 .hero-photo {
   position: absolute;
   inset: 0;
   width: 100%;
   height: 100%;
+  max-width: none;
   object-fit: cover;
 }
 
@@ -363,6 +383,12 @@ main {
   background: var(--teal-dark);
 }
 
+.crew-band-photo picture,
+.card-media picture,
+.photo-thumbs picture {
+  height: 100%;
+}
+
 .crew-band-photo img {
   display: block;
   width: 100%;
@@ -505,6 +531,7 @@ a.card:focus-visible {
 .description,
 .stay-note {
   margin: 0;
+  overflow-wrap: anywhere;
 }
 
 .property-name {
@@ -777,6 +804,47 @@ a.card:focus-visible {
   margin: 0;
   padding: 0 0.85rem 0.85rem;
   font-size: 0.92rem;
+}
+
+.unit-copy {
+  display: grid;
+  gap: 1rem;
+  padding: 0 0 1.4rem;
+  min-width: 0;
+}
+
+.unit-copy section {
+  min-width: 0;
+  background: var(--paper);
+  border-radius: var(--radius);
+  padding: 1rem 1.05rem 1.15rem;
+  box-shadow: var(--shadow);
+}
+
+.unit-copy h2,
+.info-panel h2 {
+  font-size: clamp(1.25rem, 2.2vw, 1.6rem);
+}
+
+.unit-copy ul {
+  margin: 0.4rem 0 0;
+  padding-left: 1.15rem;
+}
+
+.unit-copy li + li {
+  margin-top: 0.28rem;
+}
+
+.related-units {
+  list-style: none;
+  margin: 0.4rem 0 0;
+  padding: 0;
+  display: grid;
+  gap: 0.4rem;
+}
+
+.related-units a {
+  font-weight: 800;
 }
 
 .unit-details h1 {

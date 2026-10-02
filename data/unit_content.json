@@ -1,0 +1,298 @@
+{
+  "GW-1": {
+    "shortName": "Greenway Apt 1",
+    "kind": "furnished apartment",
+    "about": "Greenway Apt 1 is a furnished apartment in Brownsville. Listing photos show a living and dining area, a separate living area, and a kitchen. They also show exterior stairs and a bedroom. Weekly and monthly stays are available.",
+    "highlights": [
+      "Living and dining area",
+      "Kitchen",
+      "Exterior stairs",
+      "Bedroom"
+    ],
+    "photoRooms": [
+      "living and dining area",
+      "living area",
+      "exterior stairs",
+      "kitchen",
+      "bedroom"
+    ],
+    "metaDescription": "Greenway Apt 1 is a furnished apartment in Brownsville, TX for weekly or monthly stays. Crews near Starbase are welcome. Contact us for rent and availability.",
+    "location": "Greenway Apt 1 is in Brownsville, in the Rio Grande Valley. This furnished apartment is a base for people working at the Port of Brownsville, on wind projects, or near Starbase and Boca Chica."
+  },
+  "GW-2": {
+    "shortName": "Greenway Apt 2",
+    "kind": "furnished apartment",
+    "about": "Greenway Apt 2 is a furnished apartment in Brownsville. The living room is shown both on its own and together with the kitchen. A television is set up with a retro game console and controllers, and the dining area is photographed on its own. It is offered for weekly or monthly stays.",
+    "highlights": [
+      "Living room open toward the kitchen",
+      "Dining area",
+      "Television with a retro game console",
+      "Retro game controllers"
+    ],
+    "photoRooms": [
+      "living room",
+      "living room and kitchen",
+      "TV with retro game console",
+      "retro game controllers",
+      "dining area"
+    ],
+    "metaDescription": "Greenway Apt 2 is a furnished apartment in Brownsville, TX for weekly or monthly stays. It suits wind-project crews. Contact us for rent and availability.",
+    "location": "Greenway Apt 2 is in Brownsville, in the Rio Grande Valley. Weekly and monthly guests include people working at the Port of Brownsville, on wind projects, or near Starbase and Boca Chica."
+  },
+  "GW-SA": {
+    "shortName": "Greenway Suite A",
+    "kind": "small commercial suite",
+    "about": "Greenway Suite A is a small commercial suite in Brownsville. Photos are not posted yet. Contact us to see if the space fits your business. We can tell you what is available when you reach out.",
+    "highlights": [
+      "Small commercial suite in Brownsville",
+      "Photos are not posted yet",
+      "Contact us to see if the space fits your business"
+    ],
+    "photoRooms": [],
+    "metaDescription": "Greenway Suite A is a small commercial suite at 4 Greenway Dr in Brownsville, TX. See if the space fits your business. Contact us for rent and availability.",
+    "location": "Greenway Suite A is a small commercial suite in Brownsville, in the Rio Grande Valley. The address is listed above. Contact us to see if the space fits your business."
+  },
+  "GW-SB": {
+    "shortName": "Greenway Suite B",
+    "kind": "small commercial suite",
+    "about": "Greenway Suite B is a small commercial suite in Brownsville. No listing photos are on this page. Contact us to see if the space fits your business before you plan how to use it. Availability is shared when you write.",
+    "highlights": [
+      "Small commercial suite in Brownsville",
+      "No listing photos posted yet",
+      "Ask whether the space fits your business"
+    ],
+    "photoRooms": [],
+    "metaDescription": "Greenway Suite B is a small commercial suite at 4 Greenway Dr in Brownsville, TX. Ask if the space fits your business. Contact us for rent and availability.",
+    "location": "Greenway Suite B is a small commercial suite in Brownsville, in the Rio Grande Valley. Use the address above when you get in touch. Contact us to see if the space fits your business."
+  },
+  "GW-SC": {
+    "shortName": "Greenway Suite C",
+    "kind": "small commercial suite",
+    "about": "Greenway Suite C is a small commercial suite in Brownsville. This page does not show photos or a stated use for the space. Contact us to see if the space fits your business. We will answer with what we can offer.",
+    "highlights": [
+      "Small commercial suite in Brownsville",
+      "Photos coming soon",
+      "Contact us to see if the space fits your business"
+    ],
+    "photoRooms": [],
+    "metaDescription": "Greenway Suite C is a small commercial suite at 4 Greenway Dr in Brownsville, TX. Tell us if the space fits your business. Contact us for rent and availability.",
+    "location": "Greenway Suite C is a small commercial suite in Brownsville, in the Rio Grande Valley. We can talk through the space with you. Contact us to see if the space fits your business."
+  },
+  "CH-4023-3": {
+    "shortName": "Champions 402-3",
+    "kind": "furnished townhouse",
+    "about": "Champions 402-3 is a furnished townhouse in Brownsville. Listing photos show the living room, the kitchen, and a wider view of the living and dining area, plus a bedroom. Weekly and monthly stays are available.",
+    "highlights": [
+      "Living room",
+      "Kitchen",
+      "Living and dining area",
+      "Bedroom"
+    ],
+    "photoRooms": [
+      "living room",
+      "kitchen",
+      "living room",
+      "living and dining area",
+      "bedroom"
+    ],
+    "metaDescription": "Champions 402-3 is a furnished townhouse in Brownsville, TX for weekly or monthly stays. Crews near Boca Chica can ask. Contact us for rent and availability.",
+    "location": "Champions 402-3 is in Brownsville, in the Rio Grande Valley. The townhouse is a furnished stay for people working at the Port of Brownsville, on wind projects, or near Starbase and Boca Chica."
+  },
+  "CH-4023-4": {
+    "shortName": "Champions 402-4",
+    "kind": "furnished townhouse",
+    "about": "Champions 402-4 is a furnished townhouse in Brownsville. The photos posted for this home show a pool, a spa pool, and a pond view. It can be reserved as a weekly or monthly stay. Contact us for a closer look at the townhouse itself.",
+    "highlights": [
+      "Pool shown in the listing photos",
+      "Spa pool shown in the listing photos",
+      "Pond view shown in the listing photos"
+    ],
+    "photoRooms": [
+      "pool",
+      "spa pool",
+      "pond view"
+    ],
+    "metaDescription": "Champions 402-4 is a furnished townhouse in Brownsville, TX for weekly or monthly stays near Starbase. Pool photos. Contact us for rent and availability.",
+    "location": "Champions 402-4 is in Brownsville, in the Rio Grande Valley. Guests here include people working at the Port of Brownsville, on wind projects, or near Starbase and Boca Chica."
+  },
+  "CH-428-3": {
+    "shortName": "Champions 428-3",
+    "kind": "furnished townhouse",
+    "about": "Champions 428-3 is a furnished townhouse in Brownsville. The listing photos move from the living room to a dining area and a kitchen, including a combined living and dining view and a second look at the kitchen. Weekly and monthly stays are available.",
+    "highlights": [
+      "Living room",
+      "Dining area",
+      "Kitchen",
+      "Living and dining area"
+    ],
+    "photoRooms": [
+      "living room",
+      "dining area",
+      "kitchen",
+      "living and dining area",
+      "kitchen"
+    ],
+    "metaDescription": "Champions 428-3 is a furnished townhouse in Brownsville, TX for weekly or monthly stays for Port of Brownsville LNG crews. Contact us for rent and availability.",
+    "location": "Champions 428-3 is in Brownsville, in the Rio Grande Valley. It is a furnished stay for people working at the Port of Brownsville, on wind projects, or near Starbase and Boca Chica."
+  },
+  "AU-A": {
+    "shortName": "Aurora A",
+    "kind": "furnished apartment",
+    "about": "Aurora A is a furnished apartment in Brownsville. Listing photos show the living room, a dining area, and a kitchen, then return to the living room and a view that includes the hallway. The home is set up for a weekly or monthly stay.",
+    "highlights": [
+      "Living room",
+      "Dining area",
+      "Kitchen",
+      "Hallway off the living room"
+    ],
+    "photoRooms": [
+      "living room",
+      "dining area",
+      "kitchen",
+      "living room",
+      "living room and hallway"
+    ],
+    "metaDescription": "Aurora A is a furnished apartment in Brownsville, TX for weekly or monthly stays. Crews near Starbase and Boca Chica. Contact us for rent and availability.",
+    "location": "Aurora A is in Brownsville, in the Rio Grande Valley. The apartment is a furnished stay for people working at the Port of Brownsville, on wind projects, or near Starbase and Boca Chica."
+  },
+  "AU-B": {
+    "shortName": "Aurora B",
+    "kind": "furnished apartment",
+    "about": "Aurora B is a furnished apartment in Brownsville. The photos lead with the dining area, including a view into the kitchen, then show the living room and another angle of the dining area and the kitchen. It is furnished for weekly or monthly stays.",
+    "highlights": [
+      "Dining area",
+      "Kitchen seen from the dining area",
+      "Living room",
+      "Kitchen"
+    ],
+    "photoRooms": [
+      "dining area",
+      "dining area and kitchen",
+      "living room",
+      "dining area",
+      "kitchen"
+    ],
+    "metaDescription": "Aurora B is a furnished apartment in Brownsville, TX for weekly or monthly stays. Open to Port of Brownsville LNG crews. Contact us for rent and availability.",
+    "location": "Aurora B is in Brownsville, in the Rio Grande Valley. Furnished stays here suit people working at the Port of Brownsville, on wind projects, or near Starbase and Boca Chica."
+  },
+  "AU-C": {
+    "shortName": "Aurora C",
+    "kind": "furnished apartment",
+    "about": "Aurora C is a furnished apartment in Brownsville. Photos show a living room, a dining area that opens to the kitchen, the kitchen itself, a bedroom, and another view of the living room. Weekly and monthly stays are available.",
+    "highlights": [
+      "Living room",
+      "Dining area open to the kitchen",
+      "Kitchen",
+      "Bedroom"
+    ],
+    "photoRooms": [
+      "living room",
+      "dining area and kitchen",
+      "kitchen",
+      "bedroom",
+      "living room"
+    ],
+    "metaDescription": "Aurora C is a furnished apartment in Brownsville, TX for weekly or monthly stays for wind-project crews. Contact us for rent and availability.",
+    "location": "Aurora C is in Brownsville, in the Rio Grande Valley. People working at the Port of Brownsville, on wind projects, or near Starbase and Boca Chica stay in furnished homes like this one."
+  },
+  "AU-D": {
+    "shortName": "Aurora D",
+    "kind": "furnished apartment",
+    "about": "Aurora D is a furnished apartment in Brownsville. Inside, the listing photos show the living room from two angles and a bedroom. Outside, they show the building exterior and an entry balcony. The apartment is offered furnished for weekly or monthly stays.",
+    "highlights": [
+      "Living room",
+      "Building exterior",
+      "Entry balcony",
+      "Bedroom"
+    ],
+    "photoRooms": [
+      "living room",
+      "living room",
+      "building exterior",
+      "entry balcony",
+      "bedroom"
+    ],
+    "metaDescription": "Aurora D is a furnished apartment in Brownsville, TX for weekly or monthly stays. Balcony photos. Crews near Boca Chica. Contact us for rent and availability.",
+    "location": "Aurora D is in Brownsville, in the Rio Grande Valley. The furnished apartment works for people working at the Port of Brownsville, on wind projects, or near Starbase and Boca Chica."
+  },
+  "AU-E": {
+    "shortName": "Aurora E",
+    "kind": "furnished apartment",
+    "about": "Aurora E is a furnished apartment in Brownsville. The living room is shown on its own and with the television in view. Later photos follow the dining area into the kitchen. It is a furnished weekly or monthly stay.",
+    "highlights": [
+      "Living room",
+      "Living room with a television",
+      "Dining area",
+      "Kitchen"
+    ],
+    "photoRooms": [
+      "living room",
+      "living room with TV",
+      "dining area",
+      "dining area and kitchen",
+      "kitchen"
+    ],
+    "metaDescription": "Aurora E is a furnished apartment in Brownsville, TX for weekly or monthly stays. Kitchen and living room for wind crews. Contact us for rent and availability.",
+    "location": "Aurora E is in Brownsville, in the Rio Grande Valley. Guests can be people working at the Port of Brownsville, on wind projects, or near Starbase and Boca Chica."
+  },
+  "AU-1": {
+    "shortName": "Aurora 1",
+    "kind": "furnished apartment",
+    "about": "Aurora 1 is a furnished apartment in Brownsville. The living area includes a television and sits beside a kitchenette. One photo shows a retro game console with that television, and the bedroom is shown from two angles. Weekly and monthly stays are available.",
+    "highlights": [
+      "Living area with a television",
+      "Kitchenette beside the living area",
+      "Retro game console with the television",
+      "Bedroom"
+    ],
+    "photoRooms": [
+      "living area with TV",
+      "living area and kitchenette",
+      "TV with retro game console",
+      "bedroom",
+      "bedroom"
+    ],
+    "metaDescription": "Aurora 1 is a furnished apartment in Brownsville, TX for weekly or monthly stays. Kitchenette, TV, crews near Starbase. Contact us for rent and availability.",
+    "location": "Aurora 1 is in Brownsville, in the Rio Grande Valley. It is a furnished apartment for people working at the Port of Brownsville, on wind projects, or near Starbase and Boca Chica."
+  },
+  "AU-4": {
+    "shortName": "Aurora 4",
+    "kind": "furnished apartment",
+    "about": "Aurora 4 is a furnished apartment in Brownsville. Listing photos show a living room with a television, a bedroom, the living room with a sofa, exterior stairs on the building, and a dining area. The apartment is furnished for weekly or monthly stays.",
+    "highlights": [
+      "Living room with a television",
+      "Bedroom",
+      "Sofa in the living room",
+      "Exterior stairs of the building"
+    ],
+    "photoRooms": [
+      "living room with TV",
+      "bedroom",
+      "living room with sofa",
+      "exterior stairs of the building",
+      "dining area"
+    ],
+    "metaDescription": "Aurora 4 is a furnished apartment in Brownsville, TX for weekly or monthly stays for Port of Brownsville LNG crews. Contact us for rent and availability.",
+    "location": "Aurora 4 is in Brownsville, in the Rio Grande Valley. Furnished stays at this apartment are for people working at the Port of Brownsville, on wind projects, or near Starbase and Boca Chica."
+  },
+  "AU-6": {
+    "shortName": "Aurora 6",
+    "kind": "furnished apartment",
+    "about": "Aurora 6 is a furnished apartment in Brownsville. Photos show the living room, an entertainment center with a television, and a retro game console, then the kitchen from two angles. It is available as a weekly or monthly furnished stay.",
+    "highlights": [
+      "Living room",
+      "Entertainment center with a television",
+      "Retro game console",
+      "Kitchen"
+    ],
+    "photoRooms": [
+      "living room",
+      "entertainment center with TV",
+      "TV with retro game console",
+      "kitchen",
+      "kitchen"
+    ],
+    "metaDescription": "Aurora 6 is a furnished apartment in Brownsville, TX for weekly or monthly stays. TV entertainment center for wind crews. Contact us for rent and availability.",
+    "location": "Aurora 6 is in Brownsville, in the Rio Grande Valley. The furnished apartment is for people working at the Port of Brownsville, on wind projects, or near Starbase and Boca Chica."
+  }
+}

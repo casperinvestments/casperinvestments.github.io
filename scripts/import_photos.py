@@ -183,6 +183,7 @@ def main(argv=None):
     print(
         f"Imported {imported_units} units, {imported_photos} photos, {imported_bytes / 1024:.1f} KB"
     )
+    print("Reminder: run python3 scripts/optimize_images.py before the next build when photos change.")
     return 0
 
 
