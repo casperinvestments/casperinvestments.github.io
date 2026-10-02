@@ -40,6 +40,19 @@
   display: none !important;
 }
 
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  clip-path: inset(50%);
+  white-space: nowrap;
+  border: 0;
+}
+
 html {
   scroll-behavior: smooth;
   overflow-x: clip;
@@ -1082,6 +1095,22 @@ a.card:focus-visible {
   min-width: 0;
 }
 
+.contact-form-wrap .maps-link {
+  margin: 0 0 0.75rem;
+}
+
+.contact-form-wrap .maps-link a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.contact-form-wrap .maps-link a:hover {
+  text-decoration: underline;
+}
+
 .how-panel {
   background: var(--gulf);
   color: #fff;
@@ -1187,6 +1216,10 @@ a.card:focus-visible {
   color: #fff;
   font-size: 1.45rem;
   margin: 0 0 0.5rem;
+}
+
+.footer-brand .maps-link {
+  margin: 0.35rem 0 0;
 }
 
 .site-footer p {

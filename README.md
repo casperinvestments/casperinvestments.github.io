@@ -24,7 +24,7 @@ Source files, published from the root as-is (the build does not copy them):
 - `data/availability.json` — availability the pages fetch (`data/availability.json` on top-level pages, `../data/availability.json` on a unit page).
 - `data/units.json` — unit ids, slugs, addresses, and the fields `scripts/update_availability.py` checks. Do not change that schema for page copy.
 - `data/unit_content.json` — per-unit SEO copy keyed by unit id: `shortName`, `kind`, `about`, `highlights`, `photoRooms` (aligned with `01.jpg`, `02.jpg`, and so on), `metaDescription`, and `location`.
-- `site.config.json` — site name, company, city, base URL, Formspree endpoint, and `googleSiteVerification`.
+- `site.config.json` — site name, company, city, base URL, Formspree endpoint, `googleSiteVerification`, and `googleMapsUrl`.
 
 `scripts/` holds the build, availability, photo-import, and image-optimize scripts.
 

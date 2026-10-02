@@ -6,5 +6,6 @@
   "baseUrl": "https://casperinvestments.github.io",
   "formspreeEndpoint": "https://formspree.io/f/xzezjoyd",
   "contactEmailNote": "Inquiries from the contact form are delivered to Casper Rentals through Formspree.",
-  "googleSiteVerification": "ImvGdqlgCfvce9pibfJGTkuqT0RooXM0w6r3tSBoAg8"
+  "googleSiteVerification": "ImvGdqlgCfvce9pibfJGTkuqT0RooXM0w6r3tSBoAg8",
+  "googleMapsUrl": "https://www.google.com/maps/place/Casper+Rentals/"
 }

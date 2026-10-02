@@ -753,6 +753,16 @@ def render_header(depth, current, site_name):
 </header>"""
 
 
+def google_maps_anchor(config):
+    url = str(config["googleMapsUrl"]).strip()
+    return (
+        f'<a href="{esc(url)}" target="_blank" rel="noopener">'
+        "Find us on Google Maps"
+        '<span class="visually-hidden"> (opens in a new tab)</span>'
+        "</a>"
+    )
+
+
 def render_footer(depth, config, year):
     links = []
     for _key, label, path in NAV:
@@ -764,6 +774,7 @@ def render_footer(depth, config, year):
       <p class="footer-name">{esc(config["siteName"])}</p>
       <p>{esc(config["company"])}</p>
       <p>{esc(config["city"])}, {esc(config["state"])}</p>
+      <p class="maps-link">{google_maps_anchor(config)}</p>
     </div>
     <nav class="footer-nav" aria-label="Footer">
 {nav}
@@ -1528,6 +1539,7 @@ def render_contact(config, units, content, year):
         )
     hero = unit_by_slug(units, HERO_SLUG)
     image_alt = photo_alt(content[hero["id"]], 0) if hero else ""
+    maps_line = f'        <p class="maps-link">{google_maps_anchor(config)}</p>\n'
     main = f"""  <div class="wrap page-intro">
     <div class="contact-layout">
       <div class="contact-intro">
@@ -1539,7 +1551,7 @@ def render_contact(config, units, content, year):
 {icon_list(HOW_STEPS, ordered=True)}
       </aside>
       <div class="contact-form-wrap">
-{note}        <form id="contact-form" class="form" method="POST" action="{esc(endpoint)}" accept-charset="UTF-8">
+{note}{maps_line}        <form id="contact-form" class="form" method="POST" action="{esc(endpoint)}" accept-charset="UTF-8">
           <input type="hidden" name="_subject" value="New Casper Rentals inquiry">
           <div hidden>
             <label for="gotcha">Leave this field blank</label>
@@ -1630,7 +1642,15 @@ def render_robots(config):
 
 def main():
     config = load_json(ROOT / "site.config.json")
-    for key in ("siteName", "company", "city", "state", "baseUrl", "formspreeEndpoint"):
+    for key in (
+        "siteName",
+        "company",
+        "city",
+        "state",
+        "baseUrl",
+        "formspreeEndpoint",
+        "googleMapsUrl",
+    ):
         if key not in config or not str(config[key]).strip():
             sys.exit(f"error: site.config.json missing {key}")
     units = load_json(ROOT / "data" / "units.json")
