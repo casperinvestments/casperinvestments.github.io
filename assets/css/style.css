@@ -1286,6 +1286,7 @@ a.card:focus-visible {
   .filter-field,
   .check-field {
     width: 100%;
+    flex: 0 0 auto;
   }
 
   .hero-actions .btn,
