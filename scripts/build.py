@@ -47,26 +47,30 @@ CREW_FOOTNOTE = (
     "Casper Rentals is an independent local rental company and is not affiliated "
     "with any employer or project named on this page."
 )
+AFFILIATION_NOTE = (
+    "Casper Rentals is an independent local company and is not affiliated with SpaceX "
+    "or any employer or project named on this site."
+)
+PORT_HEADING = "Near the Port of Brownsville"
+PORT_PARAGRAPHS = (
+    "Port and industry workers can stay in Brownsville, a short drive from the Port of Brownsville.",
+    "Rio Grande LNG is under construction on the Brownsville Ship Channel, and the Texas LNG export terminal is planned at the port.",
+    "Saronic broke ground in September 2026 on Port Alpha, a shipyard at the Port of Brownsville planned to build autonomous (drone) and crewed ships.",
+)
 BUSINESS_DESCRIPTION = (
     "Casper Rentals offers furnished apartments and townhouses in Brownsville, Texas, "
     "for weekly and monthly stays, along with small commercial suites. "
     "Contact us about availability."
 )
 HOME_TITLE = "Furnished & Monthly Rentals in Brownsville, TX | Casper Rentals"
-HOME_DESCRIPTION = (
-    "Furnished apartments, Champion Dr townhouses & suites for weekly/monthly crews "
-    "in Brownsville near Boca Chica, Port of Brownsville & wind projects. Contact us."
-)
+HOME_DESCRIPTION = "Furnished apartments, Champion Dr townhouses & suites in Brownsville, TX for crews near the City of Starbase, TX, Port of Brownsville LNG & shipyard work."
 UNITS_TITLE = "Brownsville TX Rentals: Apartments, Townhouses & Suites | Casper Rentals"
 UNITS_DESCRIPTION = (
     "Apartments, Champion Dr townhouses, and small commercial suites in Brownsville, TX. "
     "See photos and availability, then contact us about a stay."
 )
 CREWS_TITLE = "Crew Housing in Brownsville near Starbase, LNG & Wind | Casper Rentals"
-CREWS_DESCRIPTION = (
-    "Furnished weekly and monthly crew housing in Brownsville, TX near Starbase, Boca Chica, "
-    "Port of Brownsville LNG work, and wind projects. Contact us."
-)
+CREWS_DESCRIPTION = "Weekly & monthly crew housing in Brownsville, TX near the City of Starbase, TX, Port of Brownsville LNG, the Port Alpha shipyard & wind work. Contact us."
 CONTACT_TITLE = "Contact Casper Rentals | Brownsville, TX Rentals"
 CONTACT_DESCRIPTION = (
     "Contact Casper Rentals about a furnished apartment, Champion Dr townhouse, or small "
@@ -181,9 +185,9 @@ CREW_SECTIONS = (
         ),
     ),
     (
-        "Near SpaceX Starbase at Boca Chica",
+        "Near the City of Starbase, TX",
         (
-            "Contract workers near SpaceX Starbase at Boca Chica can take a furnished weekly or monthly stay in Brownsville, TX.",
+            "Contract workers with jobs in the City of Starbase, TX, at Boca Chica can take a furnished weekly or monthly stay in Brownsville, TX.",
             "These rentals are a short drive from that area.",
             "Casper Rentals is a local company with apartments and townhouses for working crews.",
         ),
@@ -992,6 +996,9 @@ def render_home(config, units, content, availability, manifest, year):
         )
     as_of = availability.get("asOf", "")
     as_of_text = f"Availability as of {pretty_date(as_of)}" if as_of else "Availability"
+    port_paragraphs = "\n".join(
+        f"    <p>{esc(paragraph)}</p>" for paragraph in PORT_PARAGRAPHS
+    )
     main = f"""  <section class="hero">
     {hero_img}
     <div class="hero-scrim">
@@ -1017,7 +1024,7 @@ def render_home(config, units, content, availability, manifest, year):
         <p class="eyebrow">Weekly and monthly</p>
         <h2>Stays for Working Crews</h2>
         <p>Furnished apartments and townhouses in {esc(city)}, {esc(state)} are open as weekly and monthly stays for working crews.</p>
-        <p>Seasonal and contract workers on Port of Brownsville LNG projects, wind turbine techs, and crews near SpaceX Starbase at Boca Chica can stay for the length of a job.</p>
+        <p>Seasonal and contract workers on Port of Brownsville LNG projects, wind turbine techs, and crews working in the City of Starbase, TX can stay for the length of a job.</p>
         <p>Tell us your dates and how many people are in the group.</p>
         <div class="cta-actions">
           <a class="btn" href="{rel(0, "working-crews.html")}">Crew stays</a>
@@ -1026,6 +1033,13 @@ def render_home(config, units, content, availability, manifest, year):
         <p class="footnote">{esc(CREW_FOOTNOTE)}</p>
       </div>
     </div>
+  </section>
+  <section class="wrap section port-section" id="port-of-brownsville">
+    <div class="section-heading">
+      <h2>{PORT_HEADING}</h2>
+    </div>
+{port_paragraphs}
+    <p class="affiliation-note">{esc(AFFILIATION_NOTE)}</p>
   </section>
   <div class="wrap section">
     <p class="as-of" data-as-of>{esc(as_of_text)}</p>
@@ -1168,6 +1182,9 @@ def render_crews_page(config, units, content, availability, manifest, year):
         </div>
       </section>"""
         )
+    port_paragraphs = "\n".join(
+        f"      <p>{esc(paragraph)}</p>" for paragraph in PORT_PARAGRAPHS
+    )
     hero_record, hero_alt, hero_path = crew_page_hero(units, content, manifest)
     hero_img, _meta = render_responsive(
         hero_record, hero_alt, 0, "hero", eager=True, extra_class="hero-photo"
@@ -1181,7 +1198,7 @@ def render_crews_page(config, units, content, availability, manifest, year):
         <div class="hero-copy">
           <p class="eyebrow">{esc(city)}, {esc(state)}</p>
           <h1>Stays for Working Crews in {esc(city)}, {esc(state)}</h1>
-          <p class="lead">Furnished apartments and townhouses in {esc(city)}, {esc(state)} are available for seasonal and contract workers. Weekly and monthly stays suit working crews who are in town for Port of Brownsville LNG projects, wind industry work, or a job near SpaceX Starbase at Boca Chica.</p>
+          <p class="lead">Furnished apartments and townhouses in {esc(city)}, {esc(state)} are available for seasonal and contract workers. Weekly and monthly stays suit working crews who are in town for Port of Brownsville LNG projects, wind industry work, or a job in the City of Starbase, TX.</p>
           <div class="hero-actions">
             <a class="btn" href="{rel(0, "contact.html?unit=crew")}">Ask about a crew stay</a>
             <a class="btn btn-secondary" href="{rel(0, "units.html")}">See all units</a>
@@ -1195,6 +1212,11 @@ def render_crews_page(config, units, content, availability, manifest, year):
     <div class="feature-grid">
 {chr(10).join(sections)}
     </div>
+    <section class="prose-block port-section" id="port-of-brownsville">
+      <h2>{PORT_HEADING}</h2>
+{port_paragraphs}
+      <p class="affiliation-note">{esc(AFFILIATION_NOTE)}</p>
+    </section>
     <section class="prose-block">
       <h2>Furnished units</h2>
       <p>These apartments and townhouses are furnished. Weekly and monthly stays are available. Open a unit to see its photos and current status.</p>

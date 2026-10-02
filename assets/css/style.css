@@ -1109,3 +1109,15 @@ a.card:focus-visible {
     transform: none !important;
   }
 }
+
+.affiliation-note {
+  margin: 1rem 0 0;
+  padding: 0.75rem 1rem;
+  font-size: 1rem;
+  line-height: 1.5;
+  color: #1f2328;
+  background: #f4f1ea;
+  border-left: 4px solid #8a5a44;
+  border-radius: 6px;
+  max-width: 46rem;
+}
