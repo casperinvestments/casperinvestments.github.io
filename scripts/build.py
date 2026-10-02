@@ -34,7 +34,6 @@ FURNISHED_IDS = {
     "AU-4",
     "AU-6",
 }
-FURNISHED_LINE = "Furnished. Weekly and monthly stays available - contact us."
 DEFAULT_OG = "assets/img/units/aurora-a/01.jpg"
 SITE_ICON = "assets/img/apple-touch-icon.png"
 SITE_ICON_ALT = "Casper Rentals logo"
@@ -43,19 +42,43 @@ CREW_BAND_SLUG = "champions-428-3"
 CREW_HERO_SLUGS = ("champions-4023-4", "aurora-b")
 PLACEHOLDER = "assets/img/placeholder.svg"
 PLACEHOLDER_SIZE = (800, 500)
-CREW_FOOTNOTE = (
-    "Casper Rentals is an independent local rental company and is not affiliated "
-    "with any employer or project named on this page."
-)
 AFFILIATION_NOTE = (
-    "Casper Rentals is an independent local company and is not affiliated with SpaceX "
-    "or any employer or project named on this site."
+    "Casper Rentals is independent and not affiliated with SpaceX "
+    "or any employer or project named here."
 )
+CREW_FOOTNOTE = AFFILIATION_NOTE
 PORT_HEADING = "Near the Port of Brownsville"
-PORT_PARAGRAPHS = (
-    "Port and industry workers can stay in Brownsville, a short drive from the Port of Brownsville.",
-    "Rio Grande LNG is under construction on the Brownsville Ship Channel, and the Texas LNG export terminal is planned at the port.",
-    "Saronic broke ground in September 2026 on Port Alpha, a shipyard at the Port of Brownsville planned to build autonomous (drone) and crewed ships.",
+PORT_POINTS = (
+    ("map-pin", "Brownsville is a short drive from the Port of Brownsville."),
+    ("home", "Rio Grande LNG: under construction on the Brownsville Ship Channel."),
+    ("info", "Texas LNG: export terminal planned at the port."),
+    (
+        "info",
+        "Port Alpha: Saronic broke ground in September 2026 on a shipyard planned to build autonomous (drone) and crewed ships.",
+    ),
+)
+CREW_BAND_POINTS = (
+    ("home", "Port of Brownsville LNG crews"),
+    ("users", "Wind turbine technicians"),
+    ("map-pin", "Crews working in the City of Starbase, TX"),
+)
+FURNISHED_LOCATION = (
+    "For crews at the Port of Brownsville, on wind projects, or near the City of Starbase, TX and Boca Chica."
+)
+COMMERCIAL_LOCATION = (
+    "Small commercial suite in Brownsville. Ask if the space fits your business."
+)
+HIGHLIGHT_REPLACEMENTS = (
+    (" shown in the listing photos", " (in photos)"),
+    (" in the listing photos", " (in photos)"),
+    ("Living room open toward the kitchen", "Living room open to the kitchen"),
+    ("Small commercial suite in Brownsville", "Small commercial suite"),
+    ("Contact us to see if the space fits your business", "Ask if the space fits your business"),
+    ("Ask whether the space fits your business", "Ask if the space fits your business"),
+    ("Photos are not posted yet", "Photos not posted yet"),
+    ("No listing photos posted yet", "No listing photos yet"),
+    ("Television", "TV"),
+    ("television", "TV"),
 )
 BUSINESS_DESCRIPTION = (
     "Casper Rentals offers furnished apartments and townhouses in Brownsville, Texas, "
@@ -124,18 +147,24 @@ AT_ROOMS = {
 }
 ORDINALS = {2: "Second", 3: "Third", 4: "Fourth", 5: "Fifth"}
 IMAGE_SIZES = {
-    "card": "(max-width: 700px) 100vw, 400px",
-    "thumb": "(max-width: 700px) 22vw, 120px",
+    "card": "(max-width: 519px) 92vw, (max-width: 759px) 46vw, (max-width: 1099px) 30vw, 270px",
+    "related": "(max-width: 519px) 46vw, (max-width: 759px) 46vw, (max-width: 1099px) 30vw, 270px",
+    "property": "(max-width: 719px) 92vw, (max-width: 1023px) 46vw, 380px",
+    "thumb": "(max-width: 720px) 18vw, 120px",
     "main": "(max-width: 900px) 100vw, 60vw",
     "hero": "100vw",
     "band": "(max-width: 860px) 100vw, 45vw",
+    "mosaic": "(max-width: 899px) 1px, 280px",
 }
 IMAGE_SLOT = {
     "card": "800",
+    "related": "800",
+    "property": "800",
     "thumb": "400",
     "main": "1200",
     "hero": "1200",
     "band": "1200",
+    "mosaic": "800",
 }
 SLUG_RE = re.compile(r"[a-z0-9-]+")
 SOF_MARKERS = {
@@ -154,59 +183,60 @@ SECTION_META = {
     "4 Greenway Dr": {
         "anchor": "greenway",
         "title": "4 Greenway Dr",
-        "intro": "Apartments and small commercial suites at 4 Greenway Dr in Brownsville, Texas.",
+        "intro": "Apartments and small commercial suites in Brownsville.",
     },
     "Champions": {
         "anchor": "champion-dr",
         "title": "Champion Dr",
-        "intro": "Townhouses on Champion Dr in Brownsville, Texas.",
+        "intro": "Townhouses on Champion Dr in Brownsville.",
     },
     "Aurora": {
         "anchor": "aurora",
         "title": "Aurora at Paredes Line Rd",
-        "intro": "Rental units at Aurora on Paredes Line Rd in Brownsville, Texas.",
+        "intro": "Furnished apartments on Paredes Line Rd in Brownsville.",
     },
 }
 CREW_SECTIONS = (
     (
         "Port of Brownsville LNG projects",
         (
-            "Port of Brownsville LNG projects bring seasonal and contract workers to Brownsville, TX for the length of an assignment.",
-            "A furnished apartment or townhouse works as a weekly or monthly stay, so a crew has a place in town while the job is underway.",
-            "Tell us the dates and how many people need a place.",
+            ("calendar", "Seasonal and contract workers can take a furnished weekly or monthly stay."),
+            ("users", "Tell us the dates and how many people need a place."),
         ),
     ),
     (
         "Wind industry and turbine techs",
         (
-            "Wind turbine technicians and other wind industry crews often need a furnished place for weeks or months at a time.",
-            "Weekly and monthly stays at Casper Rentals fit that kind of contract work.",
-            "If several techs are in town together, ask about a crew or group stay.",
+            ("home", "A furnished place for weeks or months at a time."),
+            ("users", "Ask about a crew or group stay for techs in town."),
         ),
     ),
     (
         "Near the City of Starbase, TX",
         (
-            "Contract workers with jobs in the City of Starbase, TX, at Boca Chica can take a furnished weekly or monthly stay in Brownsville, TX.",
-            "These rentals are a short drive from that area.",
-            "Casper Rentals is a local company with apartments and townhouses for working crews.",
+            ("map-pin", "Contract workers in the City of Starbase, TX, at Boca Chica."),
+            ("home", "Furnished apartments and townhouses, a short drive from that area."),
         ),
     ),
     (
         "Weekly and monthly stays",
         (
-            "Every home on this page is a furnished apartment or townhouse.",
-            "Weekly and monthly stays are available.",
-            "Contact us about your dates and we will confirm what is open. Rent is shared when you contact us.",
+            ("check", "Every home on this page is a furnished apartment or townhouse."),
+            ("calendar", "Weekly and monthly stays are available. Rent: Contact us."),
         ),
     ),
     (
         "Crew and group stays",
         (
-            "A crew or group stay can be one furnished unit, or several units for the same dates.",
-            "Send the number of people, the dates you need, and whether you want a weekly or monthly stay.",
+            ("users", "One furnished unit, or several units for the same dates."),
+            ("calendar", "Send how many people, your dates, and weekly or monthly."),
         ),
     ),
+)
+HOW_STEPS = (
+    ("home", "Choose a unit, or a crew or group stay."),
+    ("calendar", "Share your dates. For a crew, add how many people and weekly or monthly."),
+    ("check", "We reply about availability. Rent: Contact us."),
 )
 
 
@@ -221,6 +251,98 @@ def load_json(path):
 
 def esc(value):
     return html.escape(str(value), quote=True)
+
+
+SVG_ATTRS = (
+    'class="icon" viewBox="0 0 24 24" width="20" height="20" '
+    'aria-hidden="true" focusable="false"'
+)
+ICON_PATHS = {
+    "check": (
+        '<path d="M5 12.5 10 17.5 19 7" fill="none" stroke="currentColor" '
+        'stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>'
+    ),
+    "calendar": (
+        '<rect x="4" y="5" width="16" height="15" rx="2" fill="none" stroke="currentColor" stroke-width="2"/>'
+        '<path d="M8 3.5V7M16 3.5V7M4 10h16" fill="none" stroke="currentColor" '
+        'stroke-width="2" stroke-linecap="round"/>'
+    ),
+    "users": (
+        '<circle cx="9" cy="8" r="3" fill="none" stroke="currentColor" stroke-width="2"/>'
+        '<path d="M3.5 19.5c.6-2.8 2.8-4.5 5.5-4.5s4.9 1.7 5.5 4.5" fill="none" '
+        'stroke="currentColor" stroke-width="2" stroke-linecap="round"/>'
+        '<circle cx="17" cy="9" r="2.2" fill="none" stroke="currentColor" stroke-width="2"/>'
+        '<path d="M16.2 15c1.8.3 3.2 1.5 3.8 3.5" fill="none" stroke="currentColor" '
+        'stroke-width="2" stroke-linecap="round"/>'
+    ),
+    "map-pin": (
+        '<path d="M12 21s7-5.6 7-11a7 7 0 1 0-14 0c0 5.4 7 11 7 11z" fill="none" '
+        'stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>'
+        '<circle cx="12" cy="10" r="2.2" fill="none" stroke="currentColor" stroke-width="2"/>'
+    ),
+    "home": (
+        '<path d="M4 11.2 12 4l8 7.2" fill="none" stroke="currentColor" stroke-width="2" '
+        'stroke-linecap="round" stroke-linejoin="round"/>'
+        '<path d="M7 10.5V20h10v-9.5" fill="none" stroke="currentColor" stroke-width="2" '
+        'stroke-linejoin="round"/>'
+    ),
+    "info": (
+        '<circle cx="12" cy="12" r="8.5" fill="none" stroke="currentColor" stroke-width="2"/>'
+        '<path d="M12 11v6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>'
+        '<circle cx="12" cy="8" r="1" fill="currentColor"/>'
+    ),
+    "arrow": (
+        '<path d="M5 12h14M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2" '
+        'stroke-linecap="round" stroke-linejoin="round"/>'
+    ),
+}
+
+
+def svg_icon(name):
+    return f"<svg {SVG_ATTRS}>{ICON_PATHS[name]}</svg>"
+
+
+def icon_list(items, ordered=False):
+    tag = "ol" if ordered else "ul"
+    rows = []
+    for icon_name, text in items:
+        rows.append(f"          <li>{svg_icon(icon_name)}<span>{esc(text)}</span></li>")
+    inner = "\n".join(rows)
+    return f'        <{tag} class="icon-list">\n{inner}\n        </{tag}>'
+
+
+def affiliation_html():
+    return (
+        f'<p class="affiliation-note">{svg_icon("info")}'
+        f"<span>{esc(AFFILIATION_NOTE)}</span></p>"
+    )
+
+
+def kind_label(entry):
+    return {
+        "furnished apartment": "Furnished apartment",
+        "furnished townhouse": "Furnished townhouse",
+        "small commercial suite": "Small commercial suite",
+    }[entry["kind"]]
+
+
+def shorten_highlight(text):
+    for old, new in HIGHLIGHT_REPLACEMENTS:
+        text = text.replace(old, new)
+    return text
+
+
+def unit_location_line(unit_id):
+    if unit_id in COMMERCIAL_IDS:
+        return COMMERCIAL_LOCATION
+    return FURNISHED_LOCATION
+
+
+def visible_blurb(unit_id, entry):
+    label = kind_label(entry)
+    if unit_id in FURNISHED_IDS:
+        return f"{label} · Weekly and monthly stays"
+    return label
 
 
 def pretty_date(iso):
@@ -562,10 +684,15 @@ def build_srcset(variants, kind, depth):
     return ", ".join(parts)
 
 
-def render_responsive(record, alt, depth, role, eager=False, extra_class="", element_id=""):
+def render_responsive(record, alt, depth, role, eager=False, extra_class="", element_id="", priority=True):
     class_attr = f' class="{extra_class}"' if extra_class else ""
     id_attr = f' id="{element_id}"' if element_id else ""
-    loading = ' fetchpriority="high"' if eager else ' loading="lazy" decoding="async"'
+    if eager and priority:
+        loading = ' fetchpriority="high"'
+    elif eager:
+        loading = ""
+    else:
+        loading = ' loading="lazy" decoding="async"'
     entry = record.get("entry")
     if entry:
         variants = entry["variants"]
@@ -607,13 +734,18 @@ def render_responsive(record, alt, depth, role, eager=False, extra_class="", ele
 def render_header(depth, current, site_name):
     links = []
     for key, label, path in NAV:
-        current_attr = ' aria-current="page"' if key == current else ""
-        links.append(f'        <a href="{rel(depth, path)}"{current_attr}>{label}</a>')
+        attrs = []
+        if key == "contact":
+            attrs.append('class="nav-cta"')
+        attrs.append(f'href="{rel(depth, path)}"')
+        if key == current:
+            attrs.append('aria-current="page"')
+        links.append(f'        <a {" ".join(attrs)}>{label}</a>')
     nav = "\n".join(links)
     return f"""<a class="skip" href="#main">Skip to content</a>
 <header class="site-header">
   <div class="wrap header-inner">
-    <a class="brand" href="{rel(depth, "index.html")}"><span class="brand-mark" aria-hidden="true"></span>{esc(site_name)}</a>
+    <a class="brand" href="{rel(depth, "index.html")}">{esc(site_name)}</a>
     <nav aria-label="Primary">
 {nav}
     </nav>
@@ -624,15 +756,19 @@ def render_header(depth, current, site_name):
 def render_footer(depth, config, year):
     links = []
     for _key, label, path in NAV:
-        links.append(f'      <a href="{rel(depth, path)}">{label}</a>')
+        links.append(f'        <a href="{rel(depth, path)}">{label}</a>')
     nav = "\n".join(links)
     return f"""<footer class="site-footer">
-  <div class="wrap footer-inner">
-    <p>{esc(config["siteName"])} - {esc(config["company"])} - {esc(config["city"])}, {esc(config["state"])}</p>
+  <div class="wrap footer-grid">
+    <div class="footer-brand">
+      <p class="footer-name">{esc(config["siteName"])}</p>
+      <p>{esc(config["company"])}</p>
+      <p>{esc(config["city"])}, {esc(config["state"])}</p>
+    </div>
     <nav class="footer-nav" aria-label="Footer">
 {nav}
     </nav>
-    <p>{year}</p>
+    <p class="footer-meta">{year}</p>
   </div>
 </footer>"""
 
@@ -853,12 +989,12 @@ def property_photo(grouped, manifest):
     return grouped[0], []
 
 
-def render_card_media(content, records, depth, href=None):
+def render_card_media(content, records, depth, href=None, role="card"):
     if records:
         alt = photo_alt(content, 0)
-        image, _meta = render_responsive(records[0], alt, depth, "card")
+        image, _meta = render_responsive(records[0], alt, depth, role)
     else:
-        image, _meta = render_responsive(placeholder_record(), placeholder_alt(content), depth, "card")
+        image, _meta = render_responsive(placeholder_record(), placeholder_alt(content), depth, role)
     if href:
         return f'<a class="card-media" href="{href}">\n          {image}\n        </a>'
     return f'<span class="card-media">{image}</span>'
@@ -923,17 +1059,19 @@ def render_unit_media(unit, content, records):
 def render_unit_card(unit, content, info, records, heading="h2", show_details=True):
     page = rel(0, f"units/{unit['slug']}.html")
     media = render_card_media(content, records[:1], 0, href=page)
+    kind = f'          <p class="kind-line">{esc(kind_label(content))}</p>'
     if show_details:
         ask_href = rel(0, f"contact.html?unit={quote(unit['id'])}")
-        details = f"""          <p class="property-name">{esc(unit["property"])}</p>
-          <p class="locality">{esc(unit["locality"])}, {esc(unit["region"])}</p>
+        details = f"""{kind}
+          <p class="locality">{esc(unit["property"])}</p>
           <p>{badge_html(unit["id"], info["status"])}</p>
           <p class="rent">Rent: Contact us</p>
           <div class="card-actions">
             <a class="btn" href="{ask_href}">Ask about this unit</a>
           </div>"""
     else:
-        details = f"""          <p>{badge_html(unit["id"], info["status"])}</p>"""
+        details = f"""{kind}
+          <p>{badge_html(unit["id"], info["status"])}</p>"""
     short = content["shortName"]
     return f"""      <article class="card" data-unit-card data-unit-id="{esc(unit["id"])}" data-property="{esc(unit["property"])}" data-status="{esc(info["status"])}">
         {media}
@@ -944,6 +1082,43 @@ def render_unit_card(unit, content, info, records, heading="h2", show_details=Tr
       </article>"""
 
 
+def render_hero(copy_html, records, alts):
+    if not records:
+        records = [placeholder_record()]
+        alts = alts or ["Photos coming soon for a Casper Rentals unit in Brownsville, TX"]
+    hero_img, _meta = render_responsive(
+        records[0], alts[0], 0, "hero", eager=True, extra_class="hero-photo"
+    )
+    tiles = []
+    for index, record in enumerate(records[1:3], start=1):
+        alt = alts[index] if index < len(alts) else alts[0]
+        img, _meta = render_responsive(record, alt, 0, "mosaic", extra_class="mosaic-photo")
+        tiles.append(f"          <div class=\"hero-tile\">\n            {img}\n          </div>")
+    mosaic = ""
+    if tiles:
+        mosaic = "        <div class=\"hero-mosaic\">\n" + "\n".join(tiles) + "\n        </div>\n"
+    return f"""  <section class="hero">
+    {hero_img}
+    <div class="hero-scrim">
+      <div class="wrap hero-layout">
+        <div class="hero-copy">
+{copy_html}
+        </div>
+{mosaic}      </div>
+    </div>
+  </section>"""
+
+
+def render_port_section():
+    return f"""  <section class="band" id="port-of-brownsville">
+    <div class="wrap">
+      <h2>{esc(PORT_HEADING)}</h2>
+{icon_list(PORT_POINTS)}
+      {affiliation_html()}
+    </div>
+  </section>"""
+
+
 def render_home(config, units, content, availability, manifest, year):
     city = config["city"]
     state = config["state"]
@@ -951,16 +1126,14 @@ def render_home(config, units, content, availability, manifest, year):
     hero_content = content[hero_unit["id"]]
     hero_records = photo_records(HERO_SLUG, manifest)
     if hero_records:
-        hero_record = hero_records[0]
-        hero_alt = photo_alt(hero_content, 0)
-        hero_path = hero_record["src"]
+        hero_alts = [photo_alt(hero_content, index) for index in range(len(hero_records))]
+        hero_alt = hero_alts[0]
+        hero_path = hero_records[0]["src"]
     else:
-        hero_record = placeholder_record()
-        hero_alt = placeholder_alt(hero_content)
+        hero_alts = [placeholder_alt(hero_content)]
+        hero_alt = hero_alts[0]
         hero_path = None
-    hero_img, _meta = render_responsive(
-        hero_record, hero_alt, 0, "hero", eager=True, extra_class="hero-photo"
-    )
+        hero_records = []
     band_unit = unit_by_slug(units, CREW_BAND_SLUG)
     band_content = content[band_unit["id"]]
     band_records = photo_records(CREW_BAND_SLUG, manifest)
@@ -982,7 +1155,7 @@ def render_home(config, units, content, availability, manifest, year):
             },
         )
         photo_unit, records = property_photo(grouped, manifest)
-        media = render_card_media(content[photo_unit["id"]], records, 0)
+        media = render_card_media(content[photo_unit["id"]], records, 0, role="property")
         href = rel(0, "units.html?property=" + quote(property_name))
         cards.append(
             f"""      <a class="card property-card" id="{esc(meta["anchor"])}" href="{href}">
@@ -990,31 +1163,20 @@ def render_home(config, units, content, availability, manifest, year):
         <div class="card-body">
           <h3>{esc(meta["title"])}</h3>
           <p>{esc(meta["intro"])}</p>
-          <span class="card-cta">View these units</span>
+          <span class="card-cta">View these units {svg_icon("arrow")}</span>
         </div>
       </a>"""
         )
     as_of = availability.get("asOf", "")
     as_of_text = f"Availability as of {pretty_date(as_of)}" if as_of else "Availability"
-    port_paragraphs = "\n".join(
-        f"    <p>{esc(paragraph)}</p>" for paragraph in PORT_PARAGRAPHS
-    )
-    main = f"""  <section class="hero">
-    {hero_img}
-    <div class="hero-scrim">
-      <div class="wrap">
-        <div class="hero-copy">
-          <p class="eyebrow">{esc(city)}, {esc(state)}</p>
+    hero_copy = f"""          <p class="eyebrow">{esc(city)}, {esc(state)}</p>
           <h1>Rentals in {esc(city)}, {esc(state)}</h1>
-          <p>Casper Rentals offers apartments in {esc(city)}, townhouses on Champion Dr, and small commercial suites at 4 Greenway Dr. Look through Brownsville apartments and other Brownsville TX rentals in the Rio Grande Valley, then contact us about a unit.</p>
+          <p>Apartments, Champion Dr townhouses, and small commercial suites.</p>
           <div class="hero-actions">
             <a class="btn" href="{rel(0, "units.html?available=1")}">See available units</a>
             <a class="btn btn-secondary" href="{rel(0, "working-crews.html")}">Crew stays</a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
+          </div>"""
+    main = f"""{render_hero(hero_copy, hero_records, hero_alts)}
   <section class="crew-band">
     <div class="wrap crew-band-inner">
       <div class="crew-band-photo">
@@ -1022,37 +1184,29 @@ def render_home(config, units, content, availability, manifest, year):
       </div>
       <div class="crew-band-copy">
         <p class="eyebrow">Weekly and monthly</p>
-        <h2>Stays for Working Crews</h2>
-        <p>Furnished apartments and townhouses in {esc(city)}, {esc(state)} are open as weekly and monthly stays for working crews.</p>
-        <p>Seasonal and contract workers on Port of Brownsville LNG projects, wind turbine techs, and crews working in the City of Starbase, TX can stay for the length of a job.</p>
-        <p>Tell us your dates and how many people are in the group.</p>
+        <h2>Furnished stays for working crews</h2>
+        <p>Furnished apartments and townhouses in {esc(city)}, {esc(state)}.</p>
+{icon_list(CREW_BAND_POINTS)}
         <div class="cta-actions">
           <a class="btn" href="{rel(0, "working-crews.html")}">Crew stays</a>
-          <a class="btn" href="{rel(0, "contact.html?unit=crew")}">Ask about a crew stay</a>
+          <a class="btn btn-secondary" href="{rel(0, "contact.html?unit=crew")}">Ask about a crew stay</a>
         </div>
-        <p class="footnote">{esc(CREW_FOOTNOTE)}</p>
       </div>
     </div>
   </section>
-  <section class="wrap section port-section" id="port-of-brownsville">
-    <div class="section-heading">
-      <h2>{PORT_HEADING}</h2>
-    </div>
-{port_paragraphs}
-    <p class="affiliation-note">{esc(AFFILIATION_NOTE)}</p>
-  </section>
+{render_port_section()}
   <div class="wrap section">
     <p class="as-of" data-as-of>{esc(as_of_text)}</p>
     <div class="section-heading">
-      <h2>Brownsville rental properties</h2>
-      <p>Apartments, townhouses, and small commercial suites. Open a property to see its units and availability.</p>
+      <h2>Brownsville rentals</h2>
+      <p>Apartments, townhouses, and small commercial suites.</p>
     </div>
-    <div class="card-grid property-grid">
+    <div class="card-grid">
 {chr(10).join(cards)}
     </div>
     <section class="cta">
       <h2>Ask about a Brownsville rental</h2>
-      <p>Tell us which unit you want to know more about. Rent is shared when you contact us.</p>
+      <p>Tell us which unit. Rent: Contact us.</p>
       <div class="cta-actions">
         <a class="btn" href="{rel(0, "contact.html")}">Contact us</a>
         <a class="btn btn-secondary" href="{rel(0, "units.html")}">Browse all units</a>
@@ -1100,30 +1254,30 @@ def render_units_page(config, units, content, availability, manifest, year):
     as_of = availability.get("asOf", "")
     as_of_text = f"Availability as of {pretty_date(as_of)}" if as_of else "Availability"
     main = f"""  <div class="wrap page-intro">
-    <h1>Rental units in {esc(city)}, {esc(state)}</h1>
-    <p class="lead">Every Casper Rentals listing in {esc(city)} is shown here, including Brownsville apartments at 4 Greenway Dr, townhouses on Champion Dr, and Aurora at Paredes Line Rd. These are Brownsville TX rentals in the Rio Grande Valley. Rent: Contact us.</p>
-    <p class="crew-link">Working in town on a contract? See <a href="{rel(0, "working-crews.html")}">stays for working crews</a> with furnished weekly and monthly stays.</p>
+    <h1>Units in {esc(city)}, {esc(state)}</h1>
+    <p class="lead">Apartments, Champion Dr townhouses, and small commercial suites. Rent: Contact us.</p>
+    <p class="crew-link">Furnished weekly and monthly stays for working crews. <a href="{rel(0, "working-crews.html")}">Crew stays</a>.</p>
     <p class="as-of" data-as-of>{esc(as_of_text)}</p>
     <div class="filters" role="group" aria-label="Filter units">
-      <label class="filter-field" for="property-filter">Property
+      <label class="filter-field" for="property-filter"><span class="filter-label">Property</span>
         <select id="property-filter">
 {chr(10).join(options)}
         </select>
       </label>
       <label class="check-field" for="available-only">
         <input id="available-only" type="checkbox">
-        Show only available units
+        Available only
       </label>
     </div>
-    <p id="filter-summary" aria-live="polite">{len(units)} rental units in {esc(city)}, {esc(state)}.</p>
-    <p id="filter-empty" hidden>No units match these filters. <a href="{rel(0, "contact.html")}">Contact us</a> and we can help you find a {esc(city)}, {esc(state)} rental.</p>
+    <p id="filter-summary" aria-live="polite">Showing {len(units)} units.</p>
+    <p id="filter-empty" hidden>No units match. <a href="{rel(0, "contact.html")}">Contact us</a> about a {esc(city)} rental.</p>
     <noscript><p>All units are listed below. Availability is shown on each one.</p></noscript>
     <div class="card-grid" id="unit-list">
 {chr(10).join(cards)}
     </div>
     <section class="cta">
-      <h2>Ready to ask about a unit?</h2>
-      <p>Contact Casper Rentals about any Brownsville, TX rental on this page.</p>
+      <h2>Ask about a unit in Brownsville</h2>
+      <p>Contact Casper Rentals. Rent: Contact us.</p>
       <div class="cta-actions">
         <a class="btn" href="{rel(0, "contact.html")}">Contact us</a>
       </div>
@@ -1149,8 +1303,9 @@ def crew_page_hero(units, content, manifest):
         unit = unit_by_slug(units, slug)
         records = photo_records(slug, manifest) if unit else []
         if unit and records:
-            return records[0], photo_alt(content[unit["id"]], 0), records[0]["src"]
-    return placeholder_record(), "Photos coming soon for a Casper Rentals unit in Brownsville, TX", None
+            alts = [photo_alt(content[unit["id"]], index) for index in range(len(records))]
+            return records, alts, records[0]["src"]
+    return [], ["Photos coming soon for a Casper Rentals unit in Brownsville, TX"], None
 
 
 def render_crews_page(config, units, content, availability, manifest, year):
@@ -1172,66 +1327,47 @@ def render_crews_page(config, units, content, availability, manifest, year):
             )
         )
     sections = []
-    for heading, paragraphs in CREW_SECTIONS:
-        body = "\n".join(f"          <p>{esc(paragraph)}</p>" for paragraph in paragraphs)
+    for heading, points in CREW_SECTIONS:
         sections.append(
             f"""      <section class="feature-card">
         <h2>{esc(heading)}</h2>
-        <div class="feature-body">
-{body}
-        </div>
+{icon_list(points)}
       </section>"""
         )
-    port_paragraphs = "\n".join(
-        f"      <p>{esc(paragraph)}</p>" for paragraph in PORT_PARAGRAPHS
-    )
-    hero_record, hero_alt, hero_path = crew_page_hero(units, content, manifest)
-    hero_img, _meta = render_responsive(
-        hero_record, hero_alt, 0, "hero", eager=True, extra_class="hero-photo"
-    )
+    hero_records, hero_alts, hero_path = crew_page_hero(units, content, manifest)
+    hero_alt = hero_alts[0]
     as_of = availability.get("asOf", "")
     as_of_text = f"Availability as of {pretty_date(as_of)}" if as_of else "Availability"
-    main = f"""  <section class="hero">
-    {hero_img}
-    <div class="hero-scrim">
-      <div class="wrap">
-        <div class="hero-copy">
-          <p class="eyebrow">{esc(city)}, {esc(state)}</p>
-          <h1>Stays for Working Crews in {esc(city)}, {esc(state)}</h1>
-          <p class="lead">Furnished apartments and townhouses in {esc(city)}, {esc(state)} are available for seasonal and contract workers. Weekly and monthly stays suit working crews who are in town for Port of Brownsville LNG projects, wind industry work, or a job in the City of Starbase, TX.</p>
+    hero_copy = f"""          <p class="eyebrow">{esc(city)}, {esc(state)}</p>
+          <h1>Crew stays in {esc(city)}, {esc(state)}</h1>
+          <p>Furnished apartments and townhouses. Weekly and monthly stays.</p>
           <div class="hero-actions">
             <a class="btn" href="{rel(0, "contact.html?unit=crew")}">Ask about a crew stay</a>
             <a class="btn btn-secondary" href="{rel(0, "units.html")}">See all units</a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-  <div class="wrap page-intro">
+          </div>"""
+    main = f"""{render_hero(hero_copy, hero_records, hero_alts)}
+  <div class="wrap section">
     <p class="as-of" data-as-of>{esc(as_of_text)}</p>
     <div class="feature-grid">
 {chr(10).join(sections)}
     </div>
-    <section class="prose-block port-section" id="port-of-brownsville">
-      <h2>{PORT_HEADING}</h2>
-{port_paragraphs}
-      <p class="affiliation-note">{esc(AFFILIATION_NOTE)}</p>
-    </section>
-    <section class="prose-block">
+  </div>
+{render_port_section()}
+  <div class="wrap section">
+    <div class="section-heading">
       <h2>Furnished units</h2>
-      <p>These apartments and townhouses are furnished. Weekly and monthly stays are available. Open a unit to see its photos and current status.</p>
-    </section>
+      <p>Apartments and townhouses with weekly and monthly stays.</p>
+    </div>
     <div class="card-grid" id="crew-units">
 {chr(10).join(cards)}
     </div>
     <section class="cta">
       <h2>Ask about a crew stay</h2>
-      <p>Tell us how many people, your dates, and whether you need a weekly or monthly stay.</p>
+      <p>Tell us how many people, your dates, and weekly or monthly.</p>
       <div class="cta-actions">
         <a class="btn" href="{rel(0, "contact.html?unit=crew")}">Ask about a crew stay</a>
       </div>
     </section>
-    <p class="footnote">{esc(CREW_FOOTNOTE)}</p>
   </div>"""
     return render_document(
         0,
@@ -1256,7 +1392,7 @@ def render_crews_page(config, units, content, availability, manifest, year):
     )
 
 
-def render_related(unit, units, content):
+def render_related(unit, units, content, availability, manifest):
     label = GROUP_LABELS.get(unit["property"], unit["property"])
     others = [
         other
@@ -1264,15 +1400,27 @@ def render_related(unit, units, content):
         if other["property"] == unit["property"] and other["id"] != unit["id"]
     ]
     if others:
-        links = []
+        cards = []
         for other in others:
-            short = content[other["id"]]["shortName"]
-            links.append(f'        <li><a href="{esc(other["slug"] + ".html")}">{esc(short)}</a></li>')
-        body = "      <ul class=\"related-units\">\n" + "\n".join(links) + "\n      </ul>"
+            entry = content[other["id"]]
+            info = availability_for(availability, other["id"])
+            records = photo_records(other["slug"], manifest)
+            media = render_card_media(entry, records[:1], 1, role="related")
+            cards.append(
+                f"""      <a class="card" href="{esc(other["slug"] + ".html")}">
+        {media}
+        <div class="card-body">
+          <h3>{esc(entry["shortName"])}</h3>
+          <p class="kind-line">{esc(kind_label(entry))}</p>
+          <p>{badge_html(other["id"], info["status"])}</p>
+        </div>
+      </a>"""
+            )
+        body = "      <div class=\"card-grid\">\n" + "\n".join(cards) + "\n      </div>"
     else:
         body = "      <p>Contact us and we can suggest another unit.</p>"
-    return f"""    <section>
-      <h2>More units at {esc(label)}</h2>
+    return f"""    <section class="related">
+      <h2>More at {esc(label)}</h2>
 {body}
     </section>"""
 
@@ -1282,64 +1430,56 @@ def render_unit_page(config, unit, units, content, availability, manifest, year)
     entry = content[unit["id"]]
     records = photo_records(unit["slug"], manifest)
     photos = [record["src"] for record in records]
-    city_line = f"{unit['locality']}, {unit['region']}"
     airbnb = ""
     if unit.get("airbnbName"):
-        airbnb = f'\n        <p class="airbnb">Also listed on Airbnb as {esc(unit["airbnbName"])}</p>'
-    stay = ""
-    if unit["id"] in FURNISHED_IDS:
-        stay = f'\n        <p class="stay-note">{esc(FURNISHED_LINE)}</p>'
+        airbnb = f'\n          <p class="airbnb">Also listed on Airbnb as {esc(unit["airbnbName"])}</p>'
     ask_href = rel(1, "contact.html?unit=" + quote(unit["id"]))
-    highlights = "\n".join(f"        <li>{esc(item)}</li>" for item in entry["highlights"])
+    highlights = icon_list(
+        [("check", shorten_highlight(item)) for item in entry["highlights"]]
+    )
     footnote = ""
     if unit["id"] in FURNISHED_IDS:
-        footnote = f'\n      <p class="footnote">{esc(CREW_FOOTNOTE)}</p>'
-    if unit["id"] in FURNISHED_IDS:
-        noun = "townhouse" if entry["kind"] == "furnished townhouse" else "apartment"
-        stays = f"""    <section>
-      <h2>Stays for working crews</h2>
-      <p>This furnished {noun} can be booked as a weekly or monthly stay. <a href="{rel(1, "working-crews.html")}">See stays for working crews</a>.</p>
-    </section>"""
+        footnote = "\n        " + affiliation_html()
+        stays = (
+            f'        <p class="crew-link"><a href="{rel(1, "working-crews.html")}">'
+            f'Crew and group stays{svg_icon("arrow")}</a></p>'
+        )
     else:
-        stays = f"""    <p class="crew-link">Looking for a furnished weekly or monthly stay instead? See our <a href="{rel(1, "working-crews.html")}">furnished units for working crews</a>.</p>"""
+        stays = ""
     main = f"""  <div class="wrap unit-page">
     <div class="unit-layout">
+      <div class="unit-gallery">
 {render_unit_media(unit, entry, records)}
+      </div>
       <div class="unit-details">
         <p class="eyebrow">{esc(unit["property"])}</p>
-        <h1>{esc(entry["shortName"])}</h1>
+        <h1>{esc(entry["shortName"])} <span class="h1-place">in Brownsville, TX</span></h1>
+        <p class="unit-blurb">{esc(visible_blurb(unit["id"], entry))}</p>
         <p class="address">{esc(unit["address"])}</p>
-        <p class="locality">{esc(city_line)}</p>
         <div class="info-panel">
-          <h2>Availability and rent</h2>
+          <h2>Availability</h2>
           <p>{badge_html(unit["id"], info["status"])}</p>
           {next_open_html(unit["id"], info["nextOpenDate"])}
-          <p class="rent">Rent: Contact us for pricing</p>{stay}{airbnb}
+          <p class="rent">Rent: Contact us</p>{airbnb}
           <div class="unit-actions">
             <a class="btn" href="{ask_href}">Ask about this unit</a>
           </div>
         </div>
-        <p class="back-link"><a href="{rel(1, "units.html")}">All units</a></p>
+        <p class="back-link"><a href="{rel(1, "units.html")}">{svg_icon("arrow")}All units</a></p>
+      </div>
+      <div class="unit-extra">
+        <section class="panel">
+          <h2>Highlights</h2>
+{highlights}
+        </section>
+        <section class="panel">
+          <h2>Location</h2>
+          <p class="loc-line">{svg_icon("map-pin")}<span>{esc(unit_location_line(unit["id"]))}</span></p>{footnote}
+        </section>
+{stays}
       </div>
     </div>
-    <div class="unit-copy">
-      <section>
-        <h2>About {esc(entry["shortName"])}</h2>
-        <p>{esc(entry["about"])}</p>
-      </section>
-      <section>
-        <h2>Highlights</h2>
-        <ul>
-{highlights}
-        </ul>
-      </section>
-      <section>
-        <h2>Location: Brownsville, TX</h2>
-        <p>{esc(entry["location"])}</p>{footnote}
-      </section>
-{render_related(unit, units, content)}
-{stays}
-    </div>
+{render_related(unit, units, content, availability, manifest)}
   </div>"""
     title = (
         f"{entry['shortName']} - {KIND_TITLE[entry['kind']]} in Brownsville, TX | {config['siteName']}"
@@ -1391,16 +1531,12 @@ def render_contact(config, units, content, year):
     main = f"""  <div class="wrap page-intro">
     <div class="contact-layout">
       <div class="contact-intro">
-        <h1>Contact us about a Brownsville, {esc(config["state"])} rental</h1>
-        <p class="lead">Ask Casper Rentals about apartments in {esc(config["city"])}, townhouses on Champion Dr, or small commercial suites at 4 Greenway Dr. Furnished weekly and monthly stays are available for working crews. We rent in {esc(config["city"])}, {esc(config["state"])}, in the Rio Grande Valley.</p>
+        <h1>Contact us in Brownsville, {esc(config["state"])}</h1>
+        <p class="lead">Apartments, Champion Dr townhouses, and small commercial suites. Weekly and monthly stays for working crews.</p>
       </div>
       <aside class="how-panel">
         <h2>How it works</h2>
-        <ol>
-          <li>Choose a unit, or a crew or group stay.</li>
-          <li>Tell us your dates. For a crew, add how many people and whether you want a weekly or monthly stay.</li>
-          <li>We reply about availability. Rent is shared when you contact us.</li>
-        </ol>
+{icon_list(HOW_STEPS, ordered=True)}
       </aside>
       <div class="contact-form-wrap">
 {note}        <form id="contact-form" class="form" method="POST" action="{esc(endpoint)}" accept-charset="UTF-8">
@@ -1449,8 +1585,8 @@ def render_404(config, units, content, year):
     hero = unit_by_slug(units, HERO_SLUG)
     image_alt = photo_alt(content[hero["id"]], 0) if hero else ""
     main = f"""  <div class="wrap page-intro">
-    <h1>Page not found</h1>
-    <p>That page is not on the {esc(config["siteName"])} site. Browse {esc(config["city"])}, {esc(config["state"])} rentals from the home page or contact us about a unit.</p>
+    <h1>Page not found in Brownsville</h1>
+    <p>That page is not on the {esc(config["siteName"])} site.</p>
     <div class="cta-actions">
       <a class="btn" href="{rel(0, "index.html")}">Back to home</a>
       <a class="btn btn-secondary" href="{rel(0, "units.html")}">View units</a>
