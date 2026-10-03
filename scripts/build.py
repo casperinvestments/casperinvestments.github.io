@@ -96,7 +96,7 @@ CREWS_TITLE = "Crew Housing in Brownsville near Starbase, LNG & Wind | Casper Re
 CREWS_DESCRIPTION = "Weekly & monthly crew housing in Brownsville, TX near the City of Starbase, TX, Port of Brownsville LNG, the Port Alpha shipyard & wind work. Contact us."
 CONTACT_TITLE = "Contact Casper Rentals | Brownsville, TX Rentals"
 CONTACT_DESCRIPTION = (
-    "Contact Casper Rentals about a furnished apartment, Champion Dr townhouse, or small "
+    "Contact Casper Rentals about a furnished apartment, townhouse, or small "
     "commercial suite in Brownsville, TX, including a weekly or monthly stay."
 )
 NOT_FOUND_TITLE = "Page Not Found | Casper Rentals"
@@ -187,8 +187,8 @@ SECTION_META = {
     },
     "Champions": {
         "anchor": "champion-dr",
-        "title": "Champion Dr",
-        "intro": "Townhouses on Champion Dr in Brownsville.",
+        "title": "Townhouses",
+        "intro": "Townhouses in Brownsville.",
     },
     "Aurora": {
         "anchor": "aurora",
