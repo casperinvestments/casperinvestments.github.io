@@ -86,10 +86,10 @@ BUSINESS_DESCRIPTION = (
     "Contact us about availability."
 )
 HOME_TITLE = "Furnished & Monthly Rentals in Brownsville, TX | Casper Rentals"
-HOME_DESCRIPTION = "Furnished apartments, Champion Dr townhouses & suites in Brownsville, TX for crews near the City of Starbase, TX, Port of Brownsville LNG & shipyard work."
+HOME_DESCRIPTION = "Furnished apartments, townhouses & suites in Brownsville, TX for crews near the City of Starbase, TX, Port of Brownsville LNG & shipyard work."
 UNITS_TITLE = "Brownsville TX Rentals: Apartments, Townhouses & Suites | Casper Rentals"
 UNITS_DESCRIPTION = (
-    "Apartments, Champion Dr townhouses, and small commercial suites in Brownsville, TX. "
+    "Apartments, townhouses, and small commercial suites in Brownsville, TX. "
     "See photos and availability, then contact us about a stay."
 )
 CREWS_TITLE = "Crew Housing in Brownsville near Starbase, LNG & Wind | Casper Rentals"
@@ -1197,7 +1197,7 @@ def render_home(config, units, content, availability, manifest, year):
     as_of_text = f"Availability as of {pretty_date(as_of)}" if as_of else "Availability"
     hero_copy = f"""          <p class="eyebrow">{esc(city)}, {esc(state)}</p>
           <h1>Rentals in {esc(city)}, {esc(state)}</h1>
-          <p>Apartments, Champion Dr townhouses, and small commercial suites.</p>
+          <p>Apartments, townhouses, and small commercial suites.</p>
           <div class="hero-actions">
             <a class="btn" href="{rel(0, "units.html?available=1")}">See available units</a>
             <a class="btn btn-secondary" href="{rel(0, "working-crews.html")}">Crew stays</a>
@@ -1281,7 +1281,7 @@ def render_units_page(config, units, content, availability, manifest, year):
     as_of_text = f"Availability as of {pretty_date(as_of)}" if as_of else "Availability"
     main = f"""  <div class="wrap page-intro">
     <h1>Units in {esc(city)}, {esc(state)}</h1>
-    <p class="lead">Apartments, Champion Dr townhouses, and small commercial suites. Rent: Contact us.</p>
+    <p class="lead">Apartments, townhouses, and small commercial suites. Rent: Contact us.</p>
     <p class="crew-link">Furnished weekly and monthly stays for working crews. <a href="{rel(0, "working-crews.html")}">Crew stays</a>.</p>
     <p class="as-of" data-as-of>{esc(as_of_text)}</p>
     <div class="filters" role="group" aria-label="Filter units">
@@ -1559,7 +1559,7 @@ def render_contact(config, units, content, year):
     <div class="contact-layout">
       <div class="contact-intro">
         <h1>Contact us in Brownsville, {esc(config["state"])}</h1>
-        <p class="lead">Apartments, Champion Dr townhouses, and small commercial suites. Weekly and monthly stays for working crews.</p>
+        <p class="lead">Apartments, townhouses, and small commercial suites. Weekly and monthly stays for working crews.</p>
       </div>
       <aside class="how-panel">
         <h2>How it works</h2>
