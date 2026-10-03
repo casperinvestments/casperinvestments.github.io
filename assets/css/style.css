@@ -1097,6 +1097,11 @@ a.card:focus-visible {
 
 .contact-form-wrap .maps-link {
   margin: 0 0 0.75rem;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  column-gap: 0.5rem;
+  row-gap: 0.25rem;
 }
 
 .contact-form-wrap .maps-link a {
@@ -1109,6 +1114,11 @@ a.card:focus-visible {
 
 .contact-form-wrap .maps-link a:hover {
   text-decoration: underline;
+}
+
+.contact-form-wrap .maps-sep,
+.footer-brand .maps-sep {
+  opacity: 0.6;
 }
 
 .how-panel {
@@ -1220,6 +1230,11 @@ a.card:focus-visible {
 
 .footer-brand .maps-link {
   margin: 0.35rem 0 0;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  column-gap: 0.5rem;
+  row-gap: 0.25rem;
 }
 
 .site-footer p {

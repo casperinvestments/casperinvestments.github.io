@@ -763,6 +763,21 @@ def google_maps_anchor(config):
     )
 
 
+def google_review_anchor(config):
+    url = str(config["googleReviewUrl"]).strip()
+    return (
+        f'<a href="{esc(url)}" target="_blank" rel="noopener">'
+        "Leave us a review"
+        '<span class="visually-hidden"> (opens in a new tab)</span>'
+        "</a>"
+    )
+
+
+def google_place_links(config):
+    sep = '<span class="maps-sep" aria-hidden="true"> · </span>'
+    return google_maps_anchor(config) + sep + google_review_anchor(config)
+
+
 def render_footer(depth, config, year):
     links = []
     for _key, label, path in NAV:
@@ -774,7 +789,7 @@ def render_footer(depth, config, year):
       <p class="footer-name">{esc(config["siteName"])}</p>
       <p>{esc(config["company"])}</p>
       <p>{esc(config["city"])}, {esc(config["state"])}</p>
-      <p class="maps-link">{google_maps_anchor(config)}</p>
+      <p class="maps-link">{google_place_links(config)}</p>
     </div>
     <nav class="footer-nav" aria-label="Footer">
 {nav}
@@ -1539,7 +1554,7 @@ def render_contact(config, units, content, year):
         )
     hero = unit_by_slug(units, HERO_SLUG)
     image_alt = photo_alt(content[hero["id"]], 0) if hero else ""
-    maps_line = f'        <p class="maps-link">{google_maps_anchor(config)}</p>\n'
+    maps_line = f'        <p class="maps-link">{google_place_links(config)}</p>\n'
     main = f"""  <div class="wrap page-intro">
     <div class="contact-layout">
       <div class="contact-intro">
@@ -1650,6 +1665,7 @@ def main():
         "baseUrl",
         "formspreeEndpoint",
         "googleMapsUrl",
+        "googleReviewUrl",
     ):
         if key not in config or not str(config[key]).strip():
             sys.exit(f"error: site.config.json missing {key}")
