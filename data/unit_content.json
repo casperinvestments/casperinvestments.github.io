@@ -101,18 +101,25 @@
   "CH-4023-4": {
     "shortName": "Champions 402-4",
     "kind": "furnished townhouse",
-    "about": "Champions 402-4 is a furnished townhouse in Brownsville. The photos posted for this home show a pool, a spa pool, and a pond view. It can be reserved as a weekly or monthly stay. Contact us for a closer look at the townhouse itself.",
+    "about": "Champions 402-4 is a furnished townhouse studio in Brownsville. Listing photos show the living area, the bedroom area, the kitchen, and the bathroom, plus the community pool. Weekly and monthly stays are available.",
     "highlights": [
-      "Pool shown in the listing photos",
-      "Spa pool shown in the listing photos",
-      "Pond view shown in the listing photos"
+      "Living area with sofa and TV",
+      "Bedroom area",
+      "Kitchen",
+      "Bathroom with walk-in shower"
     ],
     "photoRooms": [
-      "pool",
-      "spa pool",
-      "pond view"
+      "living room",
+      "living room",
+      "bedroom",
+      "bedroom",
+      "kitchen",
+      "kitchen",
+      "bathroom",
+      "bathroom",
+      "pool"
     ],
-    "metaDescription": "Champions 402-4 is a furnished townhouse in Brownsville, TX for weekly or monthly stays near Starbase. Pool photos. Contact us for rent and availability.",
+    "metaDescription": "Champions 402-4 is a furnished townhouse studio in Brownsville, TX for weekly or monthly stays near Starbase. Contact us for rent and availability.",
     "location": "Champions 402-4 is in Brownsville, in the Rio Grande Valley. Guests here include people working at the Port of Brownsville, on wind projects, or near Starbase and Boca Chica."
   },
   "CH-428-3": {

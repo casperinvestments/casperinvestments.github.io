@@ -1105,47 +1105,191 @@
   },
   "assets/img/units/champions-4023-4/02.jpg": {
     "width": 1200,
-    "height": 902,
+    "height": 1600,
     "variants": {
       "400": {
         "jpg": "assets/img/units/champions-4023-4/opt/02-400.jpg",
         "webp": "assets/img/units/champions-4023-4/opt/02-400.webp",
         "width": 400,
-        "height": 301
+        "height": 533
       },
       "800": {
         "jpg": "assets/img/units/champions-4023-4/opt/02-800.jpg",
         "webp": "assets/img/units/champions-4023-4/opt/02-800.webp",
         "width": 800,
-        "height": 601
+        "height": 1067
       },
       "1200": {
         "jpg": "assets/img/units/champions-4023-4/opt/02-1200.jpg",
         "webp": "assets/img/units/champions-4023-4/opt/02-1200.webp",
         "width": 1200,
-        "height": 902
+        "height": 1600
       }
     }
   },
   "assets/img/units/champions-4023-4/03.jpg": {
     "width": 1200,
-    "height": 900,
+    "height": 1165,
     "variants": {
       "400": {
         "jpg": "assets/img/units/champions-4023-4/opt/03-400.jpg",
         "webp": "assets/img/units/champions-4023-4/opt/03-400.webp",
         "width": 400,
-        "height": 300
+        "height": 388
       },
       "800": {
         "jpg": "assets/img/units/champions-4023-4/opt/03-800.jpg",
         "webp": "assets/img/units/champions-4023-4/opt/03-800.webp",
         "width": 800,
-        "height": 600
+        "height": 777
       },
       "1200": {
         "jpg": "assets/img/units/champions-4023-4/opt/03-1200.jpg",
         "webp": "assets/img/units/champions-4023-4/opt/03-1200.webp",
+        "width": 1200,
+        "height": 1165
+      }
+    }
+  },
+  "assets/img/units/champions-4023-4/04.jpg": {
+    "width": 1200,
+    "height": 1097,
+    "variants": {
+      "400": {
+        "jpg": "assets/img/units/champions-4023-4/opt/04-400.jpg",
+        "webp": "assets/img/units/champions-4023-4/opt/04-400.webp",
+        "width": 400,
+        "height": 366
+      },
+      "800": {
+        "jpg": "assets/img/units/champions-4023-4/opt/04-800.jpg",
+        "webp": "assets/img/units/champions-4023-4/opt/04-800.webp",
+        "width": 800,
+        "height": 731
+      },
+      "1200": {
+        "jpg": "assets/img/units/champions-4023-4/opt/04-1200.jpg",
+        "webp": "assets/img/units/champions-4023-4/opt/04-1200.webp",
+        "width": 1200,
+        "height": 1097
+      }
+    }
+  },
+  "assets/img/units/champions-4023-4/05.jpg": {
+    "width": 1200,
+    "height": 1600,
+    "variants": {
+      "400": {
+        "jpg": "assets/img/units/champions-4023-4/opt/05-400.jpg",
+        "webp": "assets/img/units/champions-4023-4/opt/05-400.webp",
+        "width": 400,
+        "height": 533
+      },
+      "800": {
+        "jpg": "assets/img/units/champions-4023-4/opt/05-800.jpg",
+        "webp": "assets/img/units/champions-4023-4/opt/05-800.webp",
+        "width": 800,
+        "height": 1067
+      },
+      "1200": {
+        "jpg": "assets/img/units/champions-4023-4/opt/05-1200.jpg",
+        "webp": "assets/img/units/champions-4023-4/opt/05-1200.webp",
+        "width": 1200,
+        "height": 1600
+      }
+    }
+  },
+  "assets/img/units/champions-4023-4/06.jpg": {
+    "width": 1200,
+    "height": 900,
+    "variants": {
+      "400": {
+        "jpg": "assets/img/units/champions-4023-4/opt/06-400.jpg",
+        "webp": "assets/img/units/champions-4023-4/opt/06-400.webp",
+        "width": 400,
+        "height": 300
+      },
+      "800": {
+        "jpg": "assets/img/units/champions-4023-4/opt/06-800.jpg",
+        "webp": "assets/img/units/champions-4023-4/opt/06-800.webp",
+        "width": 800,
+        "height": 600
+      },
+      "1200": {
+        "jpg": "assets/img/units/champions-4023-4/opt/06-1200.jpg",
+        "webp": "assets/img/units/champions-4023-4/opt/06-1200.webp",
+        "width": 1200,
+        "height": 900
+      }
+    }
+  },
+  "assets/img/units/champions-4023-4/07.jpg": {
+    "width": 1200,
+    "height": 1600,
+    "variants": {
+      "400": {
+        "jpg": "assets/img/units/champions-4023-4/opt/07-400.jpg",
+        "webp": "assets/img/units/champions-4023-4/opt/07-400.webp",
+        "width": 400,
+        "height": 533
+      },
+      "800": {
+        "jpg": "assets/img/units/champions-4023-4/opt/07-800.jpg",
+        "webp": "assets/img/units/champions-4023-4/opt/07-800.webp",
+        "width": 800,
+        "height": 1067
+      },
+      "1200": {
+        "jpg": "assets/img/units/champions-4023-4/opt/07-1200.jpg",
+        "webp": "assets/img/units/champions-4023-4/opt/07-1200.webp",
+        "width": 1200,
+        "height": 1600
+      }
+    }
+  },
+  "assets/img/units/champions-4023-4/08.jpg": {
+    "width": 1200,
+    "height": 1600,
+    "variants": {
+      "400": {
+        "jpg": "assets/img/units/champions-4023-4/opt/08-400.jpg",
+        "webp": "assets/img/units/champions-4023-4/opt/08-400.webp",
+        "width": 400,
+        "height": 533
+      },
+      "800": {
+        "jpg": "assets/img/units/champions-4023-4/opt/08-800.jpg",
+        "webp": "assets/img/units/champions-4023-4/opt/08-800.webp",
+        "width": 800,
+        "height": 1067
+      },
+      "1200": {
+        "jpg": "assets/img/units/champions-4023-4/opt/08-1200.jpg",
+        "webp": "assets/img/units/champions-4023-4/opt/08-1200.webp",
+        "width": 1200,
+        "height": 1600
+      }
+    }
+  },
+  "assets/img/units/champions-4023-4/09.jpg": {
+    "width": 1200,
+    "height": 900,
+    "variants": {
+      "400": {
+        "jpg": "assets/img/units/champions-4023-4/opt/09-400.jpg",
+        "webp": "assets/img/units/champions-4023-4/opt/09-400.webp",
+        "width": 400,
+        "height": 300
+      },
+      "800": {
+        "jpg": "assets/img/units/champions-4023-4/opt/09-800.jpg",
+        "webp": "assets/img/units/champions-4023-4/opt/09-800.webp",
+        "width": 800,
+        "height": 600
+      },
+      "1200": {
+        "jpg": "assets/img/units/champions-4023-4/opt/09-1200.jpg",
+        "webp": "assets/img/units/champions-4023-4/opt/09-1200.webp",
         "width": 1200,
         "height": 900
       }
