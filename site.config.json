@@ -8,5 +8,6 @@
   "contactEmailNote": "Inquiries from the contact form are delivered to Casper Rentals through Formspree.",
   "googleSiteVerification": "ImvGdqlgCfvce9pibfJGTkuqT0RooXM0w6r3tSBoAg8",
   "googleMapsUrl": "https://maps.app.goo.gl/c8vzFhi7G8Qvrnnw9",
-  "googleReviewUrl": "https://g.page/r/CXdcmIWHglO7EBM/review"
+  "googleReviewUrl": "https://g.page/r/CXdcmIWHglO7EBM/review",
+  "hiddenUnits": ["GW-SA", "GW-SB", "GW-SC"]
 }

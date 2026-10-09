@@ -10,18 +10,6 @@
       "status": "Available from 2026-11-23",
       "nextOpenDate": "2026-11-23"
     },
-    "GW-SA": {
-      "status": "Occupied",
-      "nextOpenDate": null
-    },
-    "GW-SB": {
-      "status": "Contact us",
-      "nextOpenDate": null
-    },
-    "GW-SC": {
-      "status": "Occupied",
-      "nextOpenDate": null
-    },
     "CH-4023-3": {
       "status": "Contact us",
       "nextOpenDate": null

@@ -3,6 +3,7 @@
 
 Overwrites only the generated pages, sitemap, robots.txt, and .nojekyll.
 Does not delete or copy anything else. assets/ and data/ stay where they are.
+Units listed in hiddenUnits are omitted from public pages and written as noindex stubs.
 
 Uses the Python standard library only. If assets/img/manifest.json is missing,
 photo tags fall back to the original JPEGs.
@@ -238,6 +239,91 @@ HOW_STEPS = (
     ("calendar", "Share your dates. For a crew, add how many people and weekly or monthly."),
     ("check", "We reply about availability. Rent: Contact us."),
 )
+
+
+def commercial_listed(units):
+    return any(unit["id"] in COMMERCIAL_IDS for unit in units)
+
+
+def catalog_sentence(units):
+    if commercial_listed(units):
+        return "Apartments, townhouses, and small commercial suites."
+    return "Furnished apartments and townhouses."
+
+
+def business_description(units):
+    if commercial_listed(units):
+        return BUSINESS_DESCRIPTION
+    return (
+        "Casper Rentals offers furnished apartments and townhouses in Brownsville, Texas, "
+        "for weekly and monthly stays. "
+        "Contact us about availability."
+    )
+
+
+def home_description(units):
+    if commercial_listed(units):
+        return HOME_DESCRIPTION
+    return (
+        "Furnished apartments and townhouses in Brownsville, TX for crews near the "
+        "City of Starbase, TX, Port of Brownsville LNG & shipyard work."
+    )
+
+
+def units_title(units):
+    if commercial_listed(units):
+        return UNITS_TITLE
+    return "Brownsville TX Rentals: Apartments & Townhouses | Casper Rentals"
+
+
+def units_description(units):
+    if commercial_listed(units):
+        return UNITS_DESCRIPTION
+    return (
+        "Furnished apartments and townhouses in Brownsville, TX. "
+        "See photos and availability, then contact us about a stay."
+    )
+
+
+def contact_description(units):
+    if commercial_listed(units):
+        return CONTACT_DESCRIPTION
+    return (
+        "Contact Casper Rentals about a furnished apartment or townhouse "
+        "in Brownsville, TX, including a weekly or monthly stay."
+    )
+
+
+def not_found_description(units):
+    if commercial_listed(units):
+        return NOT_FOUND_DESCRIPTION
+    return (
+        "This page is not on the Casper Rentals site. Browse furnished apartments and "
+        "townhouses in Brownsville, TX, or contact us about a stay."
+    )
+
+
+def greenway_card_intro(units):
+    if commercial_listed(units):
+        return SECTION_META["4 Greenway Dr"]["intro"]
+    return "Furnished apartments in Brownsville."
+
+
+def hidden_unit_ids(config, units):
+    raw = config.get("hiddenUnits", [])
+    if raw is None:
+        raw = []
+    if not isinstance(raw, list):
+        sys.exit("error: site.config.json hiddenUnits must be a list of unit ids")
+    known = {unit["id"] for unit in units}
+    hidden = set()
+    for item in raw:
+        if not isinstance(item, str) or not item:
+            sys.exit("error: site.config.json hiddenUnits must be a list of unit ids")
+        if item not in known:
+            sys.exit(f"error: hiddenUnits id {item} is not in data/units.json")
+        hidden.add(item)
+    return hidden
 
 
 def load_json(path):
@@ -883,7 +969,7 @@ def postal_address(unit=None):
     }
 
 
-def organization_schema(config):
+def organization_schema(config, description):
     return {
         "@context": "https://schema.org",
         "@type": ["LodgingBusiness", "LocalBusiness"],
@@ -893,7 +979,7 @@ def organization_schema(config):
         "url": absolute_url(config["baseUrl"], "/"),
         "image": absolute_url(config["baseUrl"], share_image_path(DEFAULT_OG)),
         "logo": absolute_url(config["baseUrl"], "assets/img/apple-touch-icon.png"),
-        "description": BUSINESS_DESCRIPTION,
+        "description": description,
         "address": postal_address(),
         "areaServed": {
             "@type": "City",
@@ -1148,9 +1234,9 @@ def render_port_section():
 def render_home(config, units, content, availability, manifest, year):
     city = config["city"]
     state = config["state"]
-    hero_unit = unit_by_slug(units, HERO_SLUG)
+    hero_unit = unit_by_slug(units, HERO_SLUG) or units[0]
     hero_content = content[hero_unit["id"]]
-    hero_records = photo_records(HERO_SLUG, manifest)
+    hero_records = photo_records(hero_unit["slug"], manifest)
     if hero_records:
         hero_alts = [photo_alt(hero_content, index) for index in range(len(hero_records))]
         hero_alt = hero_alts[0]
@@ -1160,9 +1246,9 @@ def render_home(config, units, content, availability, manifest, year):
         hero_alt = hero_alts[0]
         hero_path = None
         hero_records = []
-    band_unit = unit_by_slug(units, CREW_BAND_SLUG)
+    band_unit = unit_by_slug(units, CREW_BAND_SLUG) or units[0]
     band_content = content[band_unit["id"]]
-    band_records = photo_records(CREW_BAND_SLUG, manifest)
+    band_records = photo_records(band_unit["slug"], manifest)
     if band_records:
         band_record = band_records[0]
         band_alt = photo_alt(band_content, 0)
@@ -1180,6 +1266,7 @@ def render_home(config, units, content, availability, manifest, year):
                 "intro": f"Rental units at {property_name} in {city}, {state}.",
             },
         )
+        intro = greenway_card_intro(units) if property_name == "4 Greenway Dr" else meta["intro"]
         photo_unit, records = property_photo(grouped, manifest)
         media = render_card_media(content[photo_unit["id"]], records, 0, role="property")
         href = rel(0, "units.html?property=" + quote(property_name))
@@ -1188,16 +1275,17 @@ def render_home(config, units, content, availability, manifest, year):
         {media}
         <div class="card-body">
           <h3>{esc(meta["title"])}</h3>
-          <p>{esc(meta["intro"])}</p>
+          <p>{esc(intro)}</p>
           <span class="card-cta">View these units {svg_icon("arrow")}</span>
         </div>
       </a>"""
         )
     as_of = availability.get("asOf", "")
     as_of_text = f"Availability as of {pretty_date(as_of)}" if as_of else "Availability"
+    lead = catalog_sentence(units)
     hero_copy = f"""          <p class="eyebrow">{esc(city)}, {esc(state)}</p>
           <h1>Rentals in {esc(city)}, {esc(state)}</h1>
-          <p>Apartments, townhouses, and small commercial suites.</p>
+          <p>{esc(lead)}</p>
           <div class="hero-actions">
             <a class="btn" href="{rel(0, "units.html?available=1")}">See available units</a>
             <a class="btn btn-secondary" href="{rel(0, "working-crews.html")}">Crew stays</a>
@@ -1225,7 +1313,7 @@ def render_home(config, units, content, availability, manifest, year):
     <p class="as-of" data-as-of>{esc(as_of_text)}</p>
     <div class="section-heading">
       <h2>Brownsville rentals</h2>
-      <p>Apartments, townhouses, and small commercial suites.</p>
+      <p>{esc(lead)}</p>
     </div>
     <div class="card-grid">
 {chr(10).join(cards)}
@@ -1245,10 +1333,10 @@ def render_home(config, units, content, availability, manifest, year):
         config,
         year,
         HOME_TITLE,
-        HOME_DESCRIPTION,
+        home_description(units),
         absolute_url(config["baseUrl"], "/"),
         main,
-        [organization_schema(config)],
+        [organization_schema(config, business_description(units))],
         hero_path,
         hero_alt,
         verification=config.get("googleSiteVerification", ""),
@@ -1281,7 +1369,7 @@ def render_units_page(config, units, content, availability, manifest, year):
     as_of_text = f"Availability as of {pretty_date(as_of)}" if as_of else "Availability"
     main = f"""  <div class="wrap page-intro">
     <h1>Units in {esc(city)}, {esc(state)}</h1>
-    <p class="lead">Apartments, townhouses, and small commercial suites. Rent: Contact us.</p>
+    <p class="lead">{esc(catalog_sentence(units))} Rent: Contact us.</p>
     <p class="crew-link">Furnished weekly and monthly stays for working crews. <a href="{rel(0, "working-crews.html")}">Crew stays</a>.</p>
     <p class="as-of" data-as-of>{esc(as_of_text)}</p>
     <div class="filters" role="group" aria-label="Filter units">
@@ -1314,8 +1402,8 @@ def render_units_page(config, units, content, availability, manifest, year):
         "units",
         config,
         year,
-        UNITS_TITLE,
-        UNITS_DESCRIPTION,
+        units_title(units),
+        units_description(units),
         absolute_url(config["baseUrl"], "units.html"),
         main,
         [item_list_schema(config, units, content)],
@@ -1559,7 +1647,7 @@ def render_contact(config, units, content, year):
     <div class="contact-layout">
       <div class="contact-intro">
         <h1>Contact us in Brownsville, {esc(config["state"])}</h1>
-        <p class="lead">Apartments, townhouses, and small commercial suites. Weekly and monthly stays for working crews.</p>
+        <p class="lead">{esc(catalog_sentence(units))} Weekly and monthly stays for working crews.</p>
       </div>
       <aside class="how-panel">
         <h2>How it works</h2>
@@ -1600,7 +1688,7 @@ def render_contact(config, units, content, year):
         config,
         year,
         CONTACT_TITLE,
-        CONTACT_DESCRIPTION,
+        contact_description(units),
         absolute_url(config["baseUrl"], "contact.html"),
         main,
         image_path=DEFAULT_OG,
@@ -1626,13 +1714,48 @@ def render_404(config, units, content, year):
         config,
         year,
         NOT_FOUND_TITLE,
-        NOT_FOUND_DESCRIPTION,
+        not_found_description(units),
         absolute_url(config["baseUrl"], "404.html"),
         main,
         image_path=DEFAULT_OG,
         image_alt=image_alt,
         robots="noindex",
     )
+
+
+def render_hidden_unit(config, year):
+    title = f"This unit is not currently listed | {config['siteName']}"
+    description = "This unit is not currently listed."
+    units_href = rel(1, "units.html")
+    contact_href = rel(1, "contact.html")
+    main = f"""  <div class="wrap page-intro">
+    <h1>This unit is not currently listed</h1>
+    <p><a href="{units_href}">View units</a> or <a href="{contact_href}">contact us</a>.</p>
+  </div>"""
+    return f"""<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{esc(title)}</title>
+  <meta name="description" content="{esc(description)}">
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="icon" href="{rel(1, "assets/img/favicon.svg")}" type="image/svg+xml">
+  <link rel="icon" href="{rel(1, "assets/img/favicon-32.png")}" type="image/png" sizes="32x32">
+  <link rel="apple-touch-icon" href="{rel(1, "assets/img/apple-touch-icon.png")}">
+  <meta name="theme-color" content="#0b4f5c">
+  <link rel="stylesheet" href="{rel(1, "assets/css/style.css")}">
+</head>
+<body>
+{render_header(1, "", config["siteName"])}
+<main id="main">
+{main}
+</main>
+{render_footer(1, config, year)}
+<script src="{rel(1, "assets/js/main.js")}" defer></script>
+</body>
+</html>
+"""
 
 
 def render_sitemap(config, units, availability):
@@ -1684,24 +1807,35 @@ def main():
         if not (ROOT / name).is_file():
             print(f"Warning: missing {name}")
 
+    hidden_ids = hidden_unit_ids(config, units)
+    public_units = [unit for unit in units if unit["id"] not in hidden_ids]
+    if not public_units:
+        sys.exit("error: no visible units left to publish")
+
     year = date.today().year
-    write_text(ROOT / "index.html", render_home(config, units, content, availability, manifest, year))
+    write_text(
+        ROOT / "index.html",
+        render_home(config, public_units, content, availability, manifest, year),
+    )
     write_text(
         ROOT / "units.html",
-        render_units_page(config, units, content, availability, manifest, year),
+        render_units_page(config, public_units, content, availability, manifest, year),
     )
     write_text(
         ROOT / "working-crews.html",
-        render_crews_page(config, units, content, availability, manifest, year),
+        render_crews_page(config, public_units, content, availability, manifest, year),
     )
-    write_text(ROOT / "contact.html", render_contact(config, units, content, year))
-    write_text(ROOT / "404.html", render_404(config, units, content, year))
+    write_text(ROOT / "contact.html", render_contact(config, public_units, content, year))
+    write_text(ROOT / "404.html", render_404(config, public_units, content, year))
     for unit in units:
-        write_text(
-            ROOT / "units" / f"{unit['slug']}.html",
-            render_unit_page(config, unit, units, content, availability, manifest, year),
-        )
-    sitemap = render_sitemap(config, units, availability)
+        if unit["id"] in hidden_ids:
+            page = render_hidden_unit(config, year)
+        else:
+            page = render_unit_page(
+                config, unit, public_units, content, availability, manifest, year
+            )
+        write_text(ROOT / "units" / f"{unit['slug']}.html", page)
+    sitemap = render_sitemap(config, public_units, availability)
     write_text(ROOT / "sitemap.xml", sitemap)
     write_text(ROOT / "robots.txt", render_robots(config))
     write_text(ROOT / ".nojekyll", "")

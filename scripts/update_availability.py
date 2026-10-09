@@ -5,7 +5,8 @@ Usage:
     python3 scripts/update_availability.py <input.txt> [--as-of YYYY-MM-DD]
 
 Input lines look like "unit_id | status | next_open_date". The date may be
-blank. Lines starting with # are ignored. This script writes only
+blank. Lines starting with # are ignored. Ids listed in hiddenUnits in
+site.config.json are never written. This script writes only
 data/availability.json.
 """
 
@@ -18,6 +19,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
 UNITS_PATH = ROOT / "data" / "units.json"
+CONFIG_PATH = ROOT / "site.config.json"
 OUTPUT_PATH = ROOT / "data" / "availability.json"
 SOURCE = "Casper Master Unit Calendar (derived)"
 DATE_RE = re.compile(r"\d{4}-\d{2}-\d{2}")
@@ -66,6 +68,31 @@ def load_units():
     return ids
 
 
+def load_hidden_ids(known_ids):
+    try:
+        payload = json.loads(CONFIG_PATH.read_text(encoding="utf-8"))
+    except FileNotFoundError:
+        sys.exit(f"error: missing {CONFIG_PATH}")
+    except json.JSONDecodeError as exc:
+        sys.exit(f"error: {CONFIG_PATH} is not valid JSON: {exc}")
+    if not isinstance(payload, dict):
+        sys.exit("error: site.config.json must be an object")
+    raw = payload.get("hiddenUnits", [])
+    if raw is None:
+        raw = []
+    if not isinstance(raw, list):
+        sys.exit("error: site.config.json hiddenUnits must be a list of unit ids")
+    hidden = []
+    for item in raw:
+        if not isinstance(item, str) or not item:
+            sys.exit("error: site.config.json hiddenUnits must be a list of unit ids")
+        if item not in known_ids:
+            sys.exit(f"error: hiddenUnits id {item} is not in data/units.json")
+        if item not in hidden:
+            hidden.append(item)
+    return hidden
+
+
 def parse_args(argv):
     parser = argparse.ArgumentParser(
         prog="update_availability.py",
@@ -93,7 +120,9 @@ def main(argv=None):
 
     known_ids = load_units()
     known = set(known_ids)
+    hidden_ids = set(load_hidden_ids(known))
     parsed = {}
+    ignored_hidden = []
 
     for line_number, raw_line in enumerate(input_path.read_text(encoding="utf-8").splitlines(), start=1):
         line = raw_line.strip()
@@ -103,9 +132,13 @@ def main(argv=None):
         if len(parts) < 2 or not parts[0]:
             print(f"Warning: skipped malformed line {line_number}: {raw_line.strip()}")
             continue
+        unit_id = parts[0]
+        if unit_id in hidden_ids:
+            if unit_id not in ignored_hidden:
+                ignored_hidden.append(unit_id)
+            continue
         if len(parts) > 3:
             print(f"Warning: extra fields on line {line_number} ignored for {parts[0]}")
-        unit_id = parts[0]
         status_raw = parts[1]
         next_raw = parts[2] if len(parts) > 2 else ""
         if unit_id not in known:
@@ -128,12 +161,19 @@ def main(argv=None):
 
         parsed[unit_id] = {"status": status, "nextOpenDate": next_open}
 
-    missing = [unit_id for unit_id in known_ids if unit_id not in parsed]
+    if ignored_hidden:
+        print("Info: ignored hidden units: " + ", ".join(ignored_hidden))
+
+    missing = [
+        unit_id for unit_id in known_ids if unit_id not in parsed and unit_id not in hidden_ids
+    ]
     if missing:
         print("Warning: units missing from input, set to Contact us: " + ", ".join(missing))
 
     units_out = {}
     for unit_id in known_ids:
+        if unit_id in hidden_ids:
+            continue
         units_out[unit_id] = parsed.get(unit_id, {"status": "Contact us", "nextOpenDate": None})
 
     payload = {
