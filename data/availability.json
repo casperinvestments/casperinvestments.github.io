@@ -1,5 +1,5 @@
 {
-  "asOf": "2026-11-09",
+  "asOf": "2026-11-26",
   "source": "Casper Master Unit Calendar (derived)",
   "units": {
     "GW-1": {
@@ -19,8 +19,8 @@
       "nextOpenDate": null
     },
     "CH-428-3": {
-      "status": "Available from 2026-12-13",
-      "nextOpenDate": "2026-12-13"
+      "status": "Available from 2026-12-31",
+      "nextOpenDate": "2026-12-31"
     },
     "AU-A": {
       "status": "Available from 2027-02-01",
